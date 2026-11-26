@@ -743,7 +743,7 @@
         <button class="lang-btn" id="topLangHi" onclick="setLanguage('hi')">हिंदी</button>
         <button class="lang-btn" id="topLangGu" onclick="setLanguage('gu')">ગુજરાતી</button>
       </div>
-      <span class="credit-badge">Created by: Gohil Vaidtyarajsinh</span>
+      <span class="credit-badge">Created by: Gohil Vaidityarajsinh</span>
     </div>
   </nav>
 
@@ -848,6 +848,7 @@
           <button class="topic-btn" onclick="askTopic('Third Battle of Panipat')">• Battle of Panipat (1761)</button>
           <button class="topic-btn" onclick="askTopic('Raigad & Sindhudurg Forts')">• Maratha Forts</button>
           <button class="topic-btn" onclick="askTopic('Chittorgarh & Kumbhalgarh')">• Rajput Forts</button>
+          <button class="topic-btn" onclick="askTopic('Who created you')">• Who Created Itihasik?</button>
           <button class="topic-btn" onclick="askTopic('List all topics')">• View All Topics</button>
         </div>
       </div>
@@ -869,12 +870,17 @@
         <div class="chat-box" id="chatBox">
           <div class="message bot">
             <div class="bot-header">ACHARYA ITIHASIK</div>
-            Namaskar! Select <b>English</b>, <b>हिंदी</b>, or <b>ગુજરાતી</b> above, choose a narrator voice, and click <b>MIC</b> or type a name below!
+            Namaskar! Select <b>English</b>, <b>हिंदी</b>, or <b>ગુજરાતી</b> above, choose a narrator voice, and click <b>MIC</b> or type a question below!
+            <div class="suggestion-chips">
+              <button class="mini-chip" onclick="askTopic('Who created you?')">Who created Itihasik?</button>
+              <button class="mini-chip" onclick="askTopic('Chhatrapati Shivaji Maharaj')">Shivaji Maharaj</button>
+              <button class="mini-chip" onclick="askTopic('Maharana Pratap')">Maharana Pratap</button>
+            </div>
           </div>
         </div>
 
         <div class="bot-input">
-          <input type="text" id="userInput" placeholder="Speak with MIC or type Shri Rama, Shivaji Maharaj, Maharana Pratap..." onkeypress="if(event.key==='Enter') sendMessage()">
+          <input type="text" id="userInput" placeholder="Speak with MIC or type Who created you, Shivaji Maharaj, Maharana Pratap..." onkeypress="if(event.key==='Enter') sendMessage()">
           <button class="mic-btn" id="micBtn" onclick="startVoiceCommand()">MIC</button>
           <button class="search-btn" id="searchBtn" onclick="sendMessage()">SEARCH</button>
         </div>
@@ -899,7 +905,7 @@
 
   <!-- ================= FOOTER ================= -->
   <footer>
-    <p><strong>ITIHASIK — Royal Heritage Archive</strong> • Created by <strong>Gohil Vaidtyarajsinh</strong></p>
+    <p><strong>ITIHASIK — Royal Heritage Archive</strong> • Created by <strong>Gohil Vaidityarajsinh</strong></p>
     <p style="font-size: 0.8rem; margin-top: 6px; opacity: 0.85;">Preserving the timeless legacy of Ramayana, Hindavi Swarajya & Rajputana</p>
   </footer>
 
@@ -939,12 +945,14 @@
       secBotTitle: "✦ Acharya Itihasik — Voice & Multi-Language Archive ✦",
       secBotSub: "Switch between English, Hindi, or Gujarati and click MIC to speak",
       sidebarHeading: "ROYAL INDEX",
-      placeholder: "Speak with MIC or type Shri Rama, Shivaji Maharaj, Maharana Pratap...",
+      placeholder: "Speak with MIC or type Who created you, Shivaji Maharaj, Maharana Pratap...",
       searchBtn: "SEARCH",
       secQuizTitle: "✦ Test Your Historical Knowledge ✦",
       secQuizSub: "Challenge yourself with questions from the Ramayana, Maratha, and Rajput chronicles",
       nextQuizBtn: "Next Question →",
-      switchedMsg: "Language switched to English. Click MIC or ask any historical question!"
+      switchedMsg: "Language switched to English. Click MIC or ask any historical question!",
+      creatorText: "I was created by Gohil Vaidityarajsinh — the visionary mind behind Itihasik.",
+      creatorSpoken: "I was created by Gohil Vaidityarajsinh."
     },
     hi: {
       locale: "hi-IN",
@@ -975,12 +983,14 @@
       secBotTitle: "✦ आचार्य ऐतिहासिक — आवाज़ और बहुभाषी संग्रहालय ✦",
       secBotSub: "अंग्रेजी, हिंदी या गुजराती चुनें और बोलने के लिए MIC दबाएं",
       sidebarHeading: "शाही अनुक्रमणिका",
-      placeholder: "MIC दबाकर बोलें या श्रीराम, शिवाजी महाराज, महाराणा प्रताप लिखें...",
+      placeholder: "MIC दबाकर बोलें या पूछें कि आपको किसने बनाया...",
       searchBtn: "खोजें",
       secQuizTitle: "✦ अपने ऐतिहासिक ज्ञान की परीक्षा लें ✦",
       secQuizSub: "रामायण, मराठा और राजपूत इतिहास से जुड़े प्रश्नों के उत्तर दें",
       nextQuizBtn: "अगला प्रश्न →",
-      switchedMsg: "भाषा हिंदी में बदल दी गई है। अब आप हिंदी में बोल या लिख सकते हैं!"
+      switchedMsg: "भाषा हिंदी में बदल दी गई है। अब आप हिंदी में बोल या लिख सकते हैं!",
+      creatorText: "मुझे गोहिल वैद्यराजसिंह (Gohil Vaidityarajsinh) ने बनाया है।",
+      creatorSpoken: "मुझे गोहिल वैद्यराजसिंह ने बनाया है।"
     },
     gu: {
       locale: "gu-IN",
@@ -1011,12 +1021,14 @@
       secBotTitle: "✦ આચાર્ય ઐતિહાસિક — અવાજ અને બહુભાષી સંગ્રહાલય ✦",
       secBotSub: "અંગ્રેજી, હિન્દી અથવા ગુજરાતી પસંદ કરો અને બોલવા માટે MIC દબાવો",
       sidebarHeading: "શાહી અનુક્રમણિકા",
-      placeholder: "MIC દબાવીને બોલો અથવા શ્રીરામ, શિવાજી મહારાજ, મહારાણા પ્રતાપ લખો...",
+      placeholder: "MIC દબાવીને બોલો અથવા પૂછો કે તમને કોણે બનાવ્યા...",
       searchBtn: "શોધો",
       secQuizTitle: "✦ તમારા ઐતિહાસિક જ્ઞાનની કસોટી કરો ✦",
       secQuizSub: "રામાયણ, મરાઠા અને રાજપૂત ઇતિહાસના પ્રશ્નોના જવાબ આપો",
       nextQuizBtn: "આગળનો પ્રશ્ન →",
-      switchedMsg: "ભાષા ગુજરાતીમાં બદલવામાં આવી છે. હવે તમે ગુજરાતીમાં બોલી કે લખી શકો છો!"
+      switchedMsg: "ભાષા ગુજરાતીમાં બદલવામાં આવી છે. હવે તમે ગુજરાતીમાં બોલી કે લખી શકો છો!",
+      creatorText: "મને ગોહિલ વૈદ્યરાજસિંહ (Gohil Vaidityarajsinh) એ બનાવ્યા છે.",
+      creatorSpoken: "મને ગોહિલ વૈદ્યરાજસિંહ એ બનાવ્યા છે."
     }
   };
 
@@ -1030,7 +1042,7 @@
 
     const defaultOpt = document.createElement("option");
     defaultOpt.value = "";
-    defaultOpt.textContent = "Auto Narrator Voice";
+    defaultOpt.textContent = "Cool Royal Voice";
     select.appendChild(defaultOpt);
 
     availableVoices.forEach((v, idx) => {
@@ -1048,27 +1060,63 @@
     window.speechSynthesis.onvoiceschanged = populateVoices;
   }
 
+  function pickBestVoice(langCode) {
+    const select = document.getElementById("voiceSelect");
+    if (select && select.value !== "" && availableVoices[select.value]) {
+      return availableVoices[select.value];
+    }
+    if (!availableVoices.length) return null;
+
+    // Prefer deeper/male/Indian voices when available for a cool royal tone
+    const preferredKeywords = ["male", "rishi", "prabhat", "david", "george", "daniel", "india", "hindi", "gujarati"];
+    const langMatches = availableVoices.filter(v => v.lang.toLowerCase().startsWith(langCode));
+
+    for (const kw of preferredKeywords) {
+      const hit = langMatches.find(v => v.name.toLowerCase().includes(kw));
+      if (hit) return hit;
+    }
+    if (langMatches.length) return langMatches[0];
+
+    for (const kw of preferredKeywords) {
+      const hit = availableVoices.find(v => v.name.toLowerCase().includes(kw));
+      if (hit) return hit;
+    }
+    return availableVoices[0];
+  }
+
   function previewVoice() {
-    const sample = currentLang === "gu"
-      ? "નમસ્કાર! હું આચાર્ય ઐતિહાસિક છું."
-      : currentLang === "hi"
-      ? "नमस्कार! मैं आचार्य ऐतिहासिक हूँ।"
-      : "Namaskar! I am Acharya Itihasik.";
-    speakText(sample);
+    speakCoolVoice(uiTranslations[currentLang].creatorSpoken);
+  }
+
+  function speakCoolVoice(text, customPitch = 0.78, customRate = 0.88) {
+    if (!ttsEnabled || !("speechSynthesis" in window)) return;
+    stopSpeaking();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = uiTranslations[currentLang].locale;
+    utterance.rate = customRate;
+    utterance.pitch = customPitch;
+    utterance.volume = 1;
+
+    const chosen = pickBestVoice(currentLang);
+    if (chosen) utterance.voice = chosen;
+
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function speakText(text) {
+    speakCoolVoice(text, 0.86, 0.92);
   }
 
   function setLanguage(lang) {
     currentLang = lang;
     const t = uiTranslations[lang];
 
-    // Toggle active buttons in both navbar and chatbot bar
     ["En", "Hi", "Gu"].forEach(code => {
       const lower = code.toLowerCase();
       document.getElementById("topLang" + code).classList.toggle("active", lower === lang);
       document.getElementById("botLang" + code).classList.toggle("active", lower === lang);
     });
 
-    // Update page texts
     document.getElementById("navHome").textContent = t.navHome;
     document.getElementById("navChronicles").textContent = t.navChronicles;
     document.getElementById("navBot").textContent = t.navBot;
@@ -1120,29 +1168,6 @@
     }
   }
 
-  function speakText(text) {
-    if (!ttsEnabled || !("speechSynthesis" in window)) return;
-    stopSpeaking();
-    const utterance = new SpeechSynthesisUtterance(text);
-    const targetLocale = uiTranslations[currentLang].locale;
-    utterance.lang = targetLocale;
-    utterance.rate = 0.92;
-    utterance.pitch = 0.95;
-
-    const select = document.getElementById("voiceSelect");
-    if (select && select.value !== "" && availableVoices[select.value]) {
-      utterance.voice = availableVoices[select.value];
-    } else if (availableVoices.length > 0) {
-      // Automatically pick the best matching voice for English, Hindi, or Gujarati
-      const langPrefix = currentLang;
-      const matchedVoice = availableVoices.find(v => v.lang.toLowerCase().startsWith(langPrefix))
-                        || availableVoices.find(v => v.lang.toLowerCase().includes("in"));
-      if (matchedVoice) utterance.voice = matchedVoice;
-    }
-
-    window.speechSynthesis.speak(utterance);
-  }
-
   function startVoiceCommand() {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const statusEl = document.getElementById("voiceStatus");
@@ -1182,6 +1207,16 @@
     };
 
     recognition.start();
+  }
+
+  function isCreatorQuery(rawText, lowerQuery) {
+    const patterns = [
+      "who created", "who is your creator", "who made you", "who built you",
+      "your creator", "created you", "made by", "created by", "who are you",
+      "किसने बनाया", "किसने बनाई", "आपका निर्माता", "बनाया है",
+      "કોણે બનાવ્યું", "કોણે બનાવી", "તમારા સર્જક", "બનાવ્યું છે"
+    ];
+    return patterns.some(p => lowerQuery.includes(p) || rawText.includes(p));
   }
 
   // ================= MULTI-LANGUAGE HISTORICAL DATABASE =================
@@ -1321,7 +1356,7 @@
     {
       title: "Tarabai Bhonsale (1675–1761)",
       title_hi: "महारानी ताराबाई (१६७५–१७६१)",
-      title_gu: "મહારાણી તારાબાઈ (૧૬७५–૧૭૬૧)",
+      title_gu: "મહારાણી તારાબાઈ (૧૬७५–૧૬७१)",
       era: "Maratha Empire • Maharani & Regent",
       keywords: ["tarabai", "ताराबाई", "તારાબાઈ"],
       content: "Maharani Tarabai led the Maratha resistance from 1700 to 1707 after Chhatrapati Rajaram's passing, launching cavalry offensives into Mughal territories and preserving Swarajya.",
@@ -1332,7 +1367,7 @@
     {
       title: "Peshwa Bajirao I (1700–1740)",
       title_hi: "पेशवा बाजीराव प्रथम (१७००–१७४०)",
-      title_gu: "પેશવા બાજીરાવ પ્રથમ (૧૭૦૦–૧७४०)",
+      title_gu: "પેશવા બાજીરાવ પ્રથમ (૧૭૦૦–૧૭४०)",
       era: "Maratha Empire • Undefeated General",
       keywords: ["bajirao", "peshwa", "बाजीराव", "પેશવા", "બાજીરાવ"],
       content: "Undefeated across 40+ battles, Peshwa Bajirao I expanded the Maratha Empire across central and northern India through rapid cavalry warfare.",
@@ -1376,7 +1411,7 @@
     {
       title: "Mahadji Shinde (1730–1794)",
       title_hi: "महादजी शिंदे (१७३०–१७९४)",
-      title_gu: "મહાદજી શિંદે (૧७३०–१७९४)",
+      title_gu: "મહાદજી શિંદે (૧૭३०–૧૭९४)",
       era: "Maratha Confederacy • Statesman & General",
       keywords: ["mahadji", "shinde", "scindia", "महादजी", "મહાદજી"],
       content: "Mahadji Shinde revived Maratha power in North India after Panipat, defeated the British at Wadgaon (1779), and became protector of Delhi.",
@@ -1409,7 +1444,7 @@
     {
       title: "Maharana Pratap (1540–1597)",
       title_hi: "महाराणा प्रताप (१५४०–१५९७)",
-      title_gu: "મહારાણા પ્રતાપ (૧૫४०–१५९७)",
+      title_gu: "મહારાણા પ્રતાપ (૧૫४०–૧૫९७)",
       era: "Rajputana • Sisodia Ruler of Mewar",
       keywords: ["maharana pratap", "pratap", "mewar", "महाराणा प्रताप", "प्रताप", "મહારાણા પ્રતાપ", "પ્રતાપ"],
       content: "Sisodia ruler of Mewar (tracing lineage to Shri Rama's son Lava), Maharana Pratap resisted Mughal submission, fought at Haldighati (1576), and reclaimed western Mewar from his capital Chavand.",
@@ -1442,7 +1477,7 @@
     {
       title: "Rana Sanga (1482–1528)",
       title_hi: "राणा सांगा (१४८२–१५२८)",
-      title_gu: "રાણા સાંગા (૧૪૮२–૧૫૨૮)",
+      title_gu: "રાણા સાંગા (૧૪૮૨–૧૫૨૮)",
       era: "Rajputana • Unifier of Mewar",
       keywords: ["rana sanga", "khanwa", "राणा सांगा", "રાણા સાંગા"],
       content: "Rana Sanga united the Rajput clans and led a massive confederacy against Babur at the Battle of Khanwa in 1527 despite 80 battle scars.",
@@ -1486,7 +1521,7 @@
     {
       title: "Durgadas Rathore (1638–1718)",
       title_hi: "वीर दुर्गादास राठौड़ (१६३८–१७१८)",
-      title_gu: "વીર દુર્ગાદાસ રાઠોડ (૧૬३८–१७१८)",
+      title_gu: "વીર દુર્ગાદાસ રાઠોડ (૧૬३८–૧૭१८)",
       era: "Rajputana • Savior of Marwar",
       keywords: ["durgadas", "rathore", "दुर्गादास", "દુર્ગાદાસ"],
       content: "Veer Durgadas Rathore led a 30-year resistance to protect young Ajit Singh and restore Rathore rule in Marwar (Jodhpur).",
@@ -1497,7 +1532,7 @@
     {
       title: "Battle of Pratapgad (1659)",
       title_hi: "प्रतापगढ़ का युद्ध (१६५९)",
-      title_gu: "પ્રતાપગઢનું યુદ્ધ (૧६५९)",
+      title_gu: "પ્રતાપગઢનું યુદ્ધ (૧૬५९)",
       era: "Major Battle • Swarajya",
       keywords: ["pratapgad", "afzal khan", "प्रतापगढ़", "પ્રતાપગઢ"],
       content: "Chhatrapati Shivaji Maharaj defeated Afzal Khan at Pratapgad Fort in November 1659 using Wagh Nakh and a coordinated Jawali forest ambush.",
@@ -1519,7 +1554,7 @@
     {
       title: "Third Battle of Panipat (1761)",
       title_hi: "पानीपत का तृतीय युद्ध (१७६१)",
-      title_gu: "પાણીપતનું ત્રીજું યુદ્ધ (૧७६१)",
+      title_gu: "પાણીપતનું ત્રીજું યુદ્ધ (૧૭६१)",
       era: "Major Battle • Panipat",
       keywords: ["panipat", "पानीपत", "પાણીપત"],
       content: "Fought on 14 January 1761 between the Maratha army under Sadashivrao Bhau and Ahmad Shah Abdali's Afghan forces.",
@@ -1570,6 +1605,16 @@
     input.value = "";
 
     const query = rawText.toLowerCase();
+    const t = uiTranslations[currentLang];
+
+    if (isCreatorQuery(rawText, query)) {
+      appendBotMessage(
+        "Royal Creator",
+        `<span class="era-tag">Creator of Itihasik</span><br><b>${t.creatorText}</b>`
+      );
+      speakCoolVoice(t.creatorSpoken, 0.78, 0.88);
+      return;
+    }
 
     if (query.includes("all topic") || query.includes("list") || query.includes("index") || query.includes("सभी") || query.includes("બધા")) {
       let listHtml = `All <b>${historyDB.length} stored chronicles</b>:<div class="suggestion-chips">`;
@@ -1578,7 +1623,7 @@
         listHtml += `<button class="mini-chip" onclick="askTopic('${item.title.replace(/'/g, "\\'")}')">${displayTitle}</button>`;
       });
       listHtml += `</div>`;
-      appendBotMessage(uiTranslations[currentLang].langName, listHtml);
+      appendBotMessage(t.langName, listHtml);
       return;
     }
 
@@ -1619,7 +1664,7 @@
         });
         html += `</div>`;
       }
-      appendBotMessage(uiTranslations[currentLang].langName, html);
+      appendBotMessage(t.langName, html);
       speakText(displayTitle + ". " + displayBody);
     } else {
       const fallbackText = currentLang === "hi"
@@ -1629,13 +1674,13 @@
         : "No exact match found. Try asking about Shri Rama, Shivaji Maharaj, or Maharana Pratap.";
 
       appendBotMessage(
-        uiTranslations[currentLang].langName,
+        t.langName,
         `${fallbackText}
         <div class="suggestion-chips">
+          <button class="mini-chip" onclick="askTopic('Who created you?')">Who created you?</button>
           <button class="mini-chip" onclick="askTopic('Shri Rama & Suryavansha')">Shri Rama</button>
           <button class="mini-chip" onclick="askTopic('Chhatrapati Shivaji Maharaj')">Shivaji Maharaj</button>
           <button class="mini-chip" onclick="askTopic('Maharana Pratap')">Maharana Pratap</button>
-          <button class="mini-chip" onclick="askTopic('List all topics')">All Topics</button>
         </div>`
       );
       speakText(fallbackText);
