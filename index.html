@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itihasik — Royal Heritage of Ramayana, Maratha & Rajput History</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+    :root {
+      --crimson: #6B1410;
+      --royal-red: #962219;
+      --saffron: #D96B1B;
+      --gold: #D4AF37;
+      --gold-light: #F3D98B;
+      --parchment: #FAF2E4;
+      --parchment-dark: #EFE1C6;
+      --ink: #2A160E;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background-color: var(--parchment);
+      color: var(--ink);
+      background-image: 
+        radial-gradient(rgba(212, 175, 55, 0.22) 1px, transparent 1px),
+        radial-gradient(rgba(107, 20, 16, 0.08) 1px, var(--parchment) 1px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      overflow-x: hidden;
+    }
+
+    /* ================= OPENING CURTAIN & CREST ANIMATION ================= */
+    .intro-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: hideOverlay 0.5s ease 3.1s forwards;
+    }
+
+    .curtain-left, .curtain-right {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(180deg, #3D0907 0%, #6B1410 50%, #3D0907 100%);
+      z-index: 1;
+    }
+
+    .curtain-left {
+      left: 0;
+      border-right: 4px solid var(--gold);
+      animation: openLeft 1.2s cubic-bezier(0.77, 0, 0.175, 1) 1.9s forwards;
+    }
+
+    .curtain-right {
+      right: 0;
+      border-left: 4px solid var(--gold);
+      animation: openRight 1.2s cubic-bezier(0.77, 0, 0.175, 1) 1.9s forwards;
+    }
+
+    .intro-center {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--gold-light);
+      animation: emblemFadeOut 0.7s ease 1.7s forwards;
+    }
+
+    .intro-crest {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--gold-light), var(--gold));
+      color: var(--crimson);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+      font-weight: bold;
+      border: 4px solid #FFF8E7;
+      box-shadow: 0 0 35px rgba(212, 175, 55, 0.9);
+      animation: pulseZoom 1.4s ease-out forwards;
+    }
+
+    .intro-title {
+      font-size: 2.4rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      animation: riseUp 1s ease-out forwards;
+    }
+
+    .intro-sub {
+      margin-top: 8px;
+      font-size: 1rem;
+      color: #F7D794;
+      font-style: italic;
+      letter-spacing: 1.5px;
+      animation: riseUp 1.2s ease-out forwards;
+    }
+
+    @keyframes pulseZoom {
+      0% { transform: scale(0.4) rotate(-20deg); opacity: 0; }
+      70% { transform: scale(1.08) rotate(3deg); opacity: 1; }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    @keyframes riseUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes emblemFadeOut {
+      to { opacity: 0; transform: scale(1.15); }
+    }
+
+    @keyframes openLeft {
+      to { transform: translateX(-102%); }
+    }
+
+    @keyframes openRight {
+      to { transform: translateX(102%); }
+    }
+
+    @keyframes hideOverlay {
+      to { visibility: hidden; display: none; }
+    }
+
+    /* ================= TOP NAVIGATION BAR ================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(90deg, #4A0D0A, #6B1410, #8F1F17);
+      border-bottom: 3px solid var(--gold);
+      padding: 12px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.28);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    .nav-emblem {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--crimson);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 20px;
+      border: 2px solid #FFF8E7;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #FFF8E7;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .lang-group {
+      display: inline-flex;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1.5px solid var(--gold);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #FFF8E7;
+      padding: 5px 11px;
+      font-family: Georgia, serif;
+      font-size: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: var(--crimson);
+    }
+
+    .credit-badge {
+      background: rgba(255, 248, 231, 0.14);
+      border: 1.5px solid var(--gold);
+      color: var(--gold-light);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      background: linear-gradient(135deg, rgba(74, 13, 10, 0.95), rgba(150, 34, 25, 0.9), rgba(217, 107, 27, 0.88));
+      color: #FFF8E7;
+      text-align: center;
+      padding: 75px 10% 65px;
+      border-bottom: 4px solid var(--gold);
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      background: rgba(0,0,0,0.25);
+      color: var(--gold-light);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      color: #FFFDF8;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    }
+
+    .hero p {
+      max-width: 740px;
+      margin: 0 auto 28px;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: #FBE8C8;
+    }
+
+    .hero-btns {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: var(--crimson);
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      border: 2px solid #FFF8E7;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      transition: 0.25s;
+    }
+
+    .btn-gold:hover { transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: #FFF8E7;
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      border: 2px solid var(--gold);
+      transition: 0.25s;
+    }
+
+    .btn-outline:hover { background: rgba(212, 175, 55, 0.2); }
+
+    /* ================= SECTION STYLING ================= */
+    .section {
+      padding: 60px 8%;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 1.9rem;
+      color: var(--crimson);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .section-header p {
+      color: #5C3A2E;
+      font-style: italic;
+    }
+
+    /* Era Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .era-card {
+      background: linear-gradient(180deg, #FFFDF9 0%, #FAF0DC 100%);
+      border: 1.5px solid var(--gold);
+      border-top: 6px solid var(--crimson);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(42, 22, 14, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .era-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(107, 20, 16, 0.16);
+    }
+
+    .card-symbol {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--crimson);
+      color: var(--gold-light);
+      border: 2px solid var(--gold);
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .era-card h3 {
+      color: var(--crimson);
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .era-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #3D2419;
+      margin-bottom: 16px;
+    }
+
+    .card-btn {
+      background: var(--crimson);
+      color: #FFF8E7;
+      border: 1px solid var(--gold);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-family: Georgia, serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .card-btn:hover { background: var(--saffron); }
+
+    /* ================= CHATBOT SECTION ================= */
+    .chatbot-wrapper {
+      background: var(--parchment-dark);
+      border-top: 3px solid var(--gold);
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .bot-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      height: 640px;
+      background: #FFFDF9;
+      border: 2.5px solid var(--gold);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      box-shadow: 0 10px 30px rgba(42, 22, 14, 0.18);
+    }
+
+    .bot-sidebar {
+      width: 280px;
+      background: linear-gradient(180deg, #4A0D0A, #6B1410);
+      color: #FFF8E7;
+      border-right: 2px solid var(--gold);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bot-sidebar h4 {
+      color: var(--gold-light);
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+      letter-spacing: 1px;
+    }
+
+    .sidebar-scroll {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      margin-top: 10px;
+      padding-right: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gold) rgba(255, 248, 231, 0.08);
+    }
+
+    .sidebar-scroll::-webkit-scrollbar { width: 6px; }
+    .sidebar-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 6px; }
+
+    .cat-label {
+      font-size: 0.7rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+
+    .topic-btn {
+      width: 100%;
+      text-align: left;
+      background: rgba(255, 248, 231, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: #FFF8E7;
+      padding: 7px 10px;
+      border-radius: 6px;
+      margin-bottom: 5px;
+      font-family: Georgia, serif;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .topic-btn:hover { background: var(--saffron); }
+
+    .bot-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--parchment);
+    }
+
+    .bot-topbar {
+      background: #FFFDF8;
+      border-bottom: 1.5px solid var(--gold);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .voice-status {
+      font-size: 0.82rem;
+      color: var(--crimson);
+      font-weight: bold;
+    }
+
+    .controls-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .bot-lang-btn {
+      background: var(--parchment-dark);
+      border: 1px solid var(--gold);
+      color: var(--crimson);
+      padding: 4px 10px;
+      border-radius: 14px;
+      font-size: 0.78rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .bot-lang-btn.active {
+      background: var(--crimson);
+      color: #FFF8E7;
+    }
+
+    .voice-select {
+      background: #FFF8E7;
+      border: 1px solid var(--gold);
+      color: var(--crimson);
+      padding: 4px 8px;
+      border-radius: 14px;
+      font-size: 0.76rem;
+      max-width: 145px;
+      outline: none;
+    }
+
+    .speak-toggle {
+      background: var(--parchment-dark);
+      border: 1px solid var(--gold);
+      color: var(--crimson);
+      padding: 4px 10px;
+      border-radius: 14px;
+      font-family: Georgia, serif;
+      font-size: 0.76rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .speak-toggle.active {
+      background: var(--crimson);
+      color: #FFF8E7;
+    }
+
+    .chat-box {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .message {
+      max-width: 82%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      line-height: 1.65;
+      font-size: 0.96rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+    }
+
+    .bot {
+      align-self: flex-start;
+      background: #FFFDF8;
+      border: 1.5px solid var(--gold);
+      border-left: 5px solid var(--crimson);
+    }
+
+    .bot-header {
+      font-size: 0.74rem;
+      font-weight: bold;
+      color: var(--crimson);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .era-tag {
+      display: inline-block;
+      background: var(--crimson);
+      color: #FFF8E7;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+    }
+
+    .user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, var(--crimson), var(--saffron));
+      color: #FFFDF8;
+      border: 1px solid var(--gold);
+    }
+
+    .suggestion-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .mini-chip {
+      background: #FFF8E7;
+      border: 1px solid #C68B2C;
+      color: var(--crimson);
+      padding: 4px 10px;
+      border-radius: 14px;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+
+    .mini-chip:hover { background: var(--crimson); color: #FFF8E7; }
+
+    .bot-input {
+      background: var(--parchment-dark);
+      padding: 14px 18px;
+      border-top: 1.5px solid var(--gold);
+      display: flex;
+      gap: 8px;
+    }
+
+    .bot-input input {
+      flex: 1;
+      padding: 12px 18px;
+      border-radius: 25px;
+      border: 1.5px solid #B8862D;
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .mic-btn {
+      background: linear-gradient(135deg, var(--saffron), var(--royal-red));
+      color: #FFF8E7;
+      border: 1.5px solid var(--gold);
+      padding: 0 18px;
+      border-radius: 25px;
+      font-family: Georgia, serif;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .mic-btn.listening {
+      background: #1E6B2B;
+      border-color: #FFF8E7;
+      animation: micPulse 1s infinite;
+    }
+
+    @keyframes micPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+      100% { transform: scale(1); }
+    }
+
+    .search-btn {
+      background: var(--crimson);
+      color: #FFF8E7;
+      border: 1.5px solid var(--gold);
+      padding: 0 22px;
+      border-radius: 25px;
+      font-family: Georgia, serif;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* ================= INTERACTIVE QUIZ SECTION ================= */
+    .quiz-box {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #FFFDF9;
+      border: 2px solid var(--gold);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 6px 20px rgba(42, 22, 14, 0.09);
+      text-align: center;
+    }
+
+    .quiz-q {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: var(--crimson);
+      margin-bottom: 18px;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .quiz-opt {
+      background: var(--parchment);
+      border: 1.5px solid #C68B2C;
+      padding: 12px;
+      border-radius: 10px;
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .quiz-opt:hover { background: var(--gold-light); }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #3D0907;
+      color: #E8C79B;
+      text-align: center;
+      padding: 24px 5%;
+      border-top: 3px solid var(--gold);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 780px) {
+      .bot-container { flex-direction: column; height: 760px; }
+      .bot-sidebar { width: 100%; height: 180px; border-right: none; border-bottom: 2px solid var(--gold); }
+      .quiz-options { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= OPENING CURTAIN ANIMATION ================= -->
+  <div class="intro-overlay">
+    <div class="curtain-left"></div>
+    <div class="curtain-right"></div>
+    <div class="intro-center">
+      <div class="intro-crest">ॐ</div>
+      <div class="intro-title">ITIHASIK</div>
+      <div class="intro-sub">Sacred Chronicles of Ramayana, Swarajya & Rajputana</div>
+    </div>
+  </div>
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <nav class="navbar">
+    <a href="#home" class="nav-brand">
+      <div class="nav-emblem">ॐ</div>
+      <div>
+        <strong style="font-size: 1.15rem; letter-spacing: 1.5px;">ITIHASIK</strong>
+        <div style="font-size: 0.72rem; color: #F7D794;">Royal Heritage Portal</div>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a href="#home" id="navHome">Home</a>
+      <a href="#chronicles" id="navChronicles">Chronicles</a>
+      <a href="#chatbot" id="navBot">Acharya Bot</a>
+      <a href="#quiz" id="navQuiz">History Quiz</a>
+      <div class="lang-group" title="Switch Language">
+        <button class="lang-btn active" id="topLangEn" onclick="setLanguage('en')">English</button>
+        <button class="lang-btn" id="topLangHi" onclick="setLanguage('hi')">हिंदी</button>
+        <button class="lang-btn" id="topLangGu" onclick="setLanguage('gu')">ગુજરાતી</button>
+      </div>
+      <span class="credit-badge">Created by: Gohil Vaidtyarajsinh</span>
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <header class="hero" id="home">
+    <div class="hero-tag" id="heroTag">✦ Treta Yuga to Hindavi Swarajya ✦</div>
+    <h1 id="heroTitle">The Eternal Saga of Dharma, Swarajya & Rajput Valor</h1>
+    <p id="heroDesc">Explore the timeless ideals of Shri Rama in the Ramayana, the guerrilla brilliance and naval might of Chhatrapati Shivaji Maharaj, and the unyielding honor of Maharana Pratap and Rajputana—with multi-language voice commands.</p>
+    <div class="hero-btns">
+      <a href="#chatbot" class="btn-gold" id="heroBtn1">Speak to Acharya Itihasik</a>
+      <a href="#chronicles" class="btn-outline" id="heroBtn2">Explore Eras</a>
+    </div>
+  </header>
+
+  <!-- ================= DYNASTY & EPIC CARDS ================= -->
+  <section class="section" id="chronicles">
+    <div class="section-header">
+      <h2 id="secPillarsTitle">✦ Pillars of Indian Itihasa ✦</h2>
+      <p id="secPillarsSub">Select any realm below to load its stories directly into the Royal Historian Bot</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="era-card">
+        <div class="card-symbol">✦</div>
+        <h3 id="card1Title">The Sacred Ramayana</h3>
+        <p id="card1Desc">Composed by Maharishi Valmiki across seven Kandas, chronicling Shri Rama of Ayodhya, Mata Sita, Lakshmana, and Lord Hanuman's devotion in the triumph of Dharma over Ravana.</p>
+        <button class="card-btn" onclick="jumpToBot('Overview of Ramayana & Sage Valmiki')" id="card1Btn">Read Ramayana →</button>
+      </div>
+
+      <div class="era-card">
+        <div class="card-symbol">❖</div>
+        <h3 id="card2Title">The Maratha Empire</h3>
+        <p id="card2Desc">Founded by Chhatrapati Shivaji Maharaj at Raigad in 1674, defended by Chhatrapati Sambhaji Maharaj and Maharani Tarabai, and expanded across India by Peshwa Bajirao I.</p>
+        <button class="card-btn" onclick="jumpToBot('Chhatrapati Shivaji Maharaj')" id="card2Btn">Explore Swarajya →</button>
+      </div>
+
+      <div class="era-card">
+        <div class="card-symbol">◈</div>
+        <h3 id="card3Title">Rajputana Valor</h3>
+        <p id="card3Desc">From Bappa Rawal and Prithviraj Chauhan to Rana Sanga and Maharana Pratap at Haldighati, celebrating centuries of chivalry, sacrifice, and impregnable desert and hill forts.</p>
+        <button class="card-btn" onclick="jumpToBot('Maharana Pratap')" id="card3Btn">Explore Mewar →</button>
+      </div>
+
+      <div class="era-card">
+        <div class="card-symbol">◆</div>
+        <h3 id="card4Title">Legendary Forts & Battles</h3>
+        <p id="card4Desc">Discover the engineering behind Raigad, Sindhudurg, Chittorgarh, and Kumbhalgarh, and relive decisive clashes at Pratapgad, Haldighati, Sinhagad, and Panipat.</p>
+        <button class="card-btn" onclick="jumpToBot('Maratha Hill & Sea Forts')" id="card4Btn">Inspect Forts →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EMBEDDED ROYAL CHATBOT WITH VOICE & LANGUAGE ================= -->
+  <section class="section chatbot-wrapper" id="chatbot">
+    <div class="section-header">
+      <h2 id="secBotTitle">✦ Acharya Itihasik — Voice & Multi-Language Archive ✦</h2>
+      <p id="secBotSub">Switch between English, Hindi, or Gujarati and click MIC to speak</p>
+    </div>
+
+    <div class="bot-container">
+      <!-- Scrollable Sidebar -->
+      <div class="bot-sidebar">
+        <h4 id="sidebarHeading">ROYAL INDEX</h4>
+        <div class="sidebar-scroll">
+          <div class="cat-label">Ramayana Itihasa</div>
+          <button class="topic-btn" onclick="askTopic('Overview of Ramayana & Sage Valmiki')">• Overview & Valmiki</button>
+          <button class="topic-btn" onclick="askTopic('Shri Rama & Suryavansha')">• Shri Rama</button>
+          <button class="topic-btn" onclick="askTopic('Mata Sita & Janakpur')">• Mata Sita</button>
+          <button class="topic-btn" onclick="askTopic('Lakshmana, Bharata & Shatrughna')">• Lakshmana & Bharata</button>
+          <button class="topic-btn" onclick="askTopic('Lord Hanuman & Sundara Kanda')">• Lord Hanuman</button>
+          <button class="topic-btn" onclick="askTopic('Ravana & The Battle of Lanka')">• Battle of Lanka</button>
+          <button class="topic-btn" onclick="askTopic('Ram Setu, Sugriva & Vibhishana')">• Ram Setu & Allies</button>
+          <button class="topic-btn" onclick="askTopic('Seven Kandas of Ramayana')">• Seven Kandas</button>
+          <button class="topic-btn" onclick="askTopic('Ayodhya & Ram Rajya')">• Ayodhya & Ram Rajya</button>
+
+          <div class="cat-label">Maratha Empire</div>
+          <button class="topic-btn" onclick="askTopic('Chhatrapati Shivaji Maharaj')">• Shivaji Maharaj</button>
+          <button class="topic-btn" onclick="askTopic('Rajmata Jijabai')">• Rajmata Jijabai</button>
+          <button class="topic-btn" onclick="askTopic('Chhatrapati Sambhaji Maharaj')">• Sambhaji Maharaj</button>
+          <button class="topic-btn" onclick="askTopic('Tarabai Bhonsale')">• Maharani Tarabai</button>
+          <button class="topic-btn" onclick="askTopic('Peshwa Bajirao I')">• Peshwa Bajirao I</button>
+          <button class="topic-btn" onclick="askTopic('Tanaji Malusare & Battle of Sinhagad')">• Tanaji Malusare</button>
+          <button class="topic-btn" onclick="askTopic('Baji Prabhu Deshpande & Battle of Pavan Khind')">• Baji Prabhu Deshpande</button>
+          <button class="topic-btn" onclick="askTopic('Ahilyabai Holkar')">• Ahilyabai Holkar</button>
+          <button class="topic-btn" onclick="askTopic('Mahadji Shinde')">• Mahadji Shinde</button>
+          <button class="topic-btn" onclick="askTopic('Kanhoji Angre & Maratha Navy')">• Kanhoji Angre</button>
+          <button class="topic-btn" onclick="askTopic('Rani Lakshmibai of Jhansi')">• Rani Lakshmibai</button>
+
+          <div class="cat-label">Rajputana Valor</div>
+          <button class="topic-btn" onclick="askTopic('Maharana Pratap')">• Maharana Pratap</button>
+          <button class="topic-btn" onclick="askTopic('Chetak & Bhama Shah')">• Chetak & Bhama Shah</button>
+          <button class="topic-btn" onclick="askTopic('Prithviraj Chauhan')">• Prithviraj Chauhan</button>
+          <button class="topic-btn" onclick="askTopic('Rana Sanga')">• Rana Sanga</button>
+          <button class="topic-btn" onclick="askTopic('Rana Kumbha')">• Rana Kumbha</button>
+          <button class="topic-btn" onclick="askTopic('Rani Padmini & Chittor')">• Rani Padmini</button>
+          <button class="topic-btn" onclick="askTopic('Bappa Rawal')">• Bappa Rawal</button>
+          <button class="topic-btn" onclick="askTopic('Durgadas Rathore')">• Durgadas Rathore</button>
+
+          <div class="cat-label">Battles & Forts</div>
+          <button class="topic-btn" onclick="askTopic('Battle of Pratapgad')">• Battle of Pratapgad</button>
+          <button class="topic-btn" onclick="askTopic('Battle of Haldighati')">• Battle of Haldighati</button>
+          <button class="topic-btn" onclick="askTopic('Third Battle of Panipat')">• Battle of Panipat (1761)</button>
+          <button class="topic-btn" onclick="askTopic('Raigad & Sindhudurg Forts')">• Maratha Forts</button>
+          <button class="topic-btn" onclick="askTopic('Chittorgarh & Kumbhalgarh')">• Rajput Forts</button>
+          <button class="topic-btn" onclick="askTopic('List all topics')">• View All Topics</button>
+        </div>
+      </div>
+
+      <!-- Chat Area -->
+      <div class="bot-main">
+        <div class="bot-topbar">
+          <span class="voice-status" id="voiceStatus">Language: English • Click MIC to speak</span>
+          <div class="controls-row">
+            <button class="bot-lang-btn active" id="botLangEn" onclick="setLanguage('en')">English</button>
+            <button class="bot-lang-btn" id="botLangHi" onclick="setLanguage('hi')">हिंदी</button>
+            <button class="bot-lang-btn" id="botLangGu" onclick="setLanguage('gu')">ગુજરાતી</button>
+            <select class="voice-select" id="voiceSelect" title="Select Narrator Voice" onchange="previewVoice()"></select>
+            <button class="speak-toggle active" id="ttsBtn" onclick="toggleTTS()">Voice: ON</button>
+            <button class="speak-toggle" onclick="stopSpeaking()">Stop</button>
+          </div>
+        </div>
+
+        <div class="chat-box" id="chatBox">
+          <div class="message bot">
+            <div class="bot-header">ACHARYA ITIHASIK</div>
+            Namaskar! Select <b>English</b>, <b>हिंदी</b>, or <b>ગુજરાતી</b> above, choose a narrator voice, and click <b>MIC</b> or type a name below!
+          </div>
+        </div>
+
+        <div class="bot-input">
+          <input type="text" id="userInput" placeholder="Speak with MIC or type Shri Rama, Shivaji Maharaj, Maharana Pratap..." onkeypress="if(event.key==='Enter') sendMessage()">
+          <button class="mic-btn" id="micBtn" onclick="startVoiceCommand()">MIC</button>
+          <button class="search-btn" id="searchBtn" onclick="sendMessage()">SEARCH</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ROYAL HISTORY QUIZ ================= -->
+  <section class="section" id="quiz">
+    <div class="section-header">
+      <h2 id="secQuizTitle">✦ Test Your Historical Knowledge ✦</h2>
+      <p id="secQuizSub">Challenge yourself with questions from the Ramayana, Maratha, and Rajput chronicles</p>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-q" id="quizQuestion">Loading question...</div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div id="quizFeedback" style="font-weight: bold; margin-bottom: 12px; min-height: 22px;"></div>
+      <button class="card-btn" id="nextQuizBtn" onclick="nextQuestion()">Next Question →</button>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p><strong>ITIHASIK — Royal Heritage Archive</strong> • Created by <strong>Gohil Vaidtyarajsinh</strong></p>
+    <p style="font-size: 0.8rem; margin-top: 6px; opacity: 0.85;">Preserving the timeless legacy of Ramayana, Hindavi Swarajya & Rajputana</p>
+  </footer>
+
+<script>
+  // ================= LANGUAGE & VOICE SETTINGS =================
+  let currentLang = "en";
+  let ttsEnabled = true;
+  let availableVoices = [];
+
+  const uiTranslations = {
+    en: {
+      locale: "en-IN",
+      langName: "English",
+      navHome: "Home",
+      navChronicles: "Chronicles",
+      navBot: "Acharya Bot",
+      navQuiz: "History Quiz",
+      heroTag: "✦ Treta Yuga to Hindavi Swarajya ✦",
+      heroTitle: "The Eternal Saga of Dharma, Swarajya & Rajput Valor",
+      heroDesc: "Explore the timeless ideals of Shri Rama in the Ramayana, the guerrilla brilliance and naval might of Chhatrapati Shivaji Maharaj, and the unyielding honor of Maharana Pratap and Rajputana—with multi-language voice commands.",
+      heroBtn1: "Speak to Acharya Itihasik",
+      heroBtn2: "Explore Eras",
+      secPillarsTitle: "✦ Pillars of Indian Itihasa ✦",
+      secPillarsSub: "Select any realm below to load its stories directly into the Royal Historian Bot",
+      card1Title: "The Sacred Ramayana",
+      card1Desc: "Composed by Maharishi Valmiki across seven Kandas, chronicling Shri Rama of Ayodhya, Mata Sita, Lakshmana, and Lord Hanuman's devotion in the triumph of Dharma over Ravana.",
+      card1Btn: "Read Ramayana →",
+      card2Title: "The Maratha Empire",
+      card2Desc: "Founded by Chhatrapati Shivaji Maharaj at Raigad in 1674, defended by Chhatrapati Sambhaji Maharaj and Maharani Tarabai, and expanded across India by Peshwa Bajirao I.",
+      card2Btn: "Explore Swarajya →",
+      card3Title: "Rajputana Valor",
+      card3Desc: "From Bappa Rawal and Prithviraj Chauhan to Rana Sanga and Maharana Pratap at Haldighati, celebrating centuries of chivalry, sacrifice, and impregnable desert and hill forts.",
+      card3Btn: "Explore Mewar →",
+      card4Title: "Legendary Forts & Battles",
+      card4Desc: "Discover the engineering behind Raigad, Sindhudurg, Chittorgarh, and Kumbhalgarh, and relive decisive clashes at Pratapgad, Haldighati, Sinhagad, and Panipat.",
+      card4Btn: "Inspect Forts →",
+      secBotTitle: "✦ Acharya Itihasik — Voice & Multi-Language Archive ✦",
+      secBotSub: "Switch between English, Hindi, or Gujarati and click MIC to speak",
+      sidebarHeading: "ROYAL INDEX",
+      placeholder: "Speak with MIC or type Shri Rama, Shivaji Maharaj, Maharana Pratap...",
+      searchBtn: "SEARCH",
+      secQuizTitle: "✦ Test Your Historical Knowledge ✦",
+      secQuizSub: "Challenge yourself with questions from the Ramayana, Maratha, and Rajput chronicles",
+      nextQuizBtn: "Next Question →",
+      switchedMsg: "Language switched to English. Click MIC or ask any historical question!"
+    },
+    hi: {
+      locale: "hi-IN",
+      langName: "हिंदी",
+      navHome: "मुख्य पृष्ठ",
+      navChronicles: "इतिहास गाथाएं",
+      navBot: "आचार्य बॉट",
+      navQuiz: "प्रश्नोत्तरी",
+      heroTag: "✦ त्रेता युग से हिंदवी स्वराज्य तक ✦",
+      heroTitle: "धर्म, स्वराज्य और राजपूताना शौर्य की अमर गाथा",
+      heroDesc: "रामायण में प्रभु श्रीराम के आदर्श, छत्रपति शिवाजी महाराज की छापामार युद्धनीति और नौसेना शक्ति, तथा महाराणा प्रताप के अदम्य स्वाभिमान को हिंदी, गुजराती और अंग्रेजी आवाज़ के साथ जानें।",
+      heroBtn1: "आचार्य ऐतिहासिक से बात करें",
+      heroBtn2: "युगों का अन्वेषण करें",
+      secPillarsTitle: "✦ भारतीय इतिहास के प्रमुख स्तंभ ✦",
+      secPillarsSub: "सीधे शाही इतिहासकार बॉट में कथा पढ़ने के लिए नीचे किसी भी विषय को चुनें",
+      card1Title: "पवित्र रामायण",
+      card1Desc: "महर्षि वाल्मीकि द्वारा सात कांडों में रचित, जिसमें अयोध्या के प्रभु श्रीराम, माता सीता, लक्ष्मण और हनुमान जी की भक्ति तथा धर्म की विजय का वर्णन है।",
+      card1Btn: "रामायण पढ़ें →",
+      card2Title: "मराठा साम्राज्य",
+      card2Desc: "1674 में रायगढ़ में छत्रपति शिवाजी महाराज द्वारा स्थापित, छत्रपति संभाजी महाराज और महारानी ताराबाई द्वारा रक्षित, और पेशवा बाजीराव प्रथम द्वारा विस्तारित।",
+      card2Btn: "स्वराज्य जानें →",
+      card3Title: "राजपूताना शौर्य",
+      card3Desc: "बप्पा रावल और पृथ्वीराज चौहान से लेकर राणा सांगा और हल्दीघाटी के महानायक महाराणा प्रताप तक, त्याग और अजेय दुर्गों की गौरवशाली परंपरा।",
+      card3Btn: "मेवाड़ जानें →",
+      card4Title: "ऐतिहासिक दुर्ग और युद्ध",
+      card4Desc: "रायगढ़, सिंधुदुर्ग, चित्तौड़गढ़ और कुंभलगढ़ की वास्तुकला तथा प्रतापगढ़, हल्दीघाटी, सिंहगढ़ और पानीपत के निर्णायक युद्धों की गाथा।",
+      card4Btn: "दुर्ग देखें →",
+      secBotTitle: "✦ आचार्य ऐतिहासिक — आवाज़ और बहुभाषी संग्रहालय ✦",
+      secBotSub: "अंग्रेजी, हिंदी या गुजराती चुनें और बोलने के लिए MIC दबाएं",
+      sidebarHeading: "शाही अनुक्रमणिका",
+      placeholder: "MIC दबाकर बोलें या श्रीराम, शिवाजी महाराज, महाराणा प्रताप लिखें...",
+      searchBtn: "खोजें",
+      secQuizTitle: "✦ अपने ऐतिहासिक ज्ञान की परीक्षा लें ✦",
+      secQuizSub: "रामायण, मराठा और राजपूत इतिहास से जुड़े प्रश्नों के उत्तर दें",
+      nextQuizBtn: "अगला प्रश्न →",
+      switchedMsg: "भाषा हिंदी में बदल दी गई है। अब आप हिंदी में बोल या लिख सकते हैं!"
+    },
+    gu: {
+      locale: "gu-IN",
+      langName: "ગુજરાતી",
+      navHome: "મુખ્ય પૃષ્ઠ",
+      navChronicles: "ઇતિહાસ ગાથાઓ",
+      navBot: "આચાર્ય બોટ",
+      navQuiz: "ઇતિહાસ ક્વિઝ",
+      heroTag: "✦ ત્રેતા યુગથી હિંદવી સ્વરાજ્ય સુધી ✦",
+      heroTitle: "ધર્મ, સ્વરાજ્ય અને રાજપૂતાના શૌર્યની અમર ગાથા",
+      heroDesc: "રામાયણમાં પ્રભુ શ્રીરામના આદર્શો, છત્રપતિ શિવાજી મહારાજની ગનિમી કાવા યુદ્ધનીતિ અને નૌકાદળ, તથા મહારાણા પ્રતાપના અડગ સ્વાભિમાનને ગુજરાતી, હિન્દી અને અંગ્રેજી અવાજ સાથે જાણો.",
+      heroBtn1: "આચાર્ય ઐતિહાસિક સાથે વાત કરો",
+      heroBtn2: "યુગો જુઓ",
+      secPillarsTitle: "✦ ભારતીય ઇતિહાસના મુખ્ય સ્તંભો ✦",
+      secPillarsSub: "સીધા જ શાહી ઇતિહાસકાર બોટમાં કથા વાંચવા માટે નીચેનો કોઈપણ વિભાગ પસંદ કરો",
+      card1Title: "પવિત્ર રામાયણ",
+      card1Desc: "મહર્ષિ વાલ્મીકિ દ્વારા સાત કાંડમાં રચિત, જેમાં અયોધ્યાના પ્રભુ શ્રીરામ, માતા સીતા, લક્ષ્મણ અને હનુમાનજીની ભક્તિ તથા ધર્મના વિજયની ગાથા છે.",
+      card1Btn: "રામાયણ વાંચો →",
+      card2Title: "મરાઠા સામ્રાજ્ય",
+      card2Desc: "૧૬૭૪માં રાયગઢ ખાતે છત્રપતિ શિવાજી મહારાજ દ્વારા સ્થાપિત, છત્રપતિ સંભાજી મહારાજ અને મહારાણી તારાબાઈ દ્વારા રક્ષિત, અને પેશવા બાજીરાવ પ્રથમ દ્વારા વિસ્તૃત.",
+      card2Btn: "સ્વરાજ્ય જાણો →",
+      card3Title: "રાજપૂતાના શૌર્ય",
+      card3Desc: "બપ્પા રાવળ અને પૃથ્વીરાજ ચૌહાણથી લઈને રાણા સાંગા અને હલ્દીઘાટીના મહાનાયક મહારાણા પ્રતાપ સુધી, બલિદાન અને અજેય કિલ્લાઓની ગૌરવગાથા.",
+      card3Btn: "મેવાડ જાણો →",
+      card4Title: "ઐતિહાસિક કિલ્લા અને યુદ્ધો",
+      card4Desc: "રાયગઢ, સિંધુદુર્ગ, ચિત્તોડગઢ અને કુંભલગઢના સ્થાપત્ય તથા પ્રતાપગઢ, હલ્દીઘાટી, સિંહગઢ અને પાણીપતના નિર્ણાયક યુદ્ધોની કથા.",
+      card4Btn: "કિલ્લા જુઓ →",
+      secBotTitle: "✦ આચાર્ય ઐતિહાસિક — અવાજ અને બહુભાષી સંગ્રહાલય ✦",
+      secBotSub: "અંગ્રેજી, હિન્દી અથવા ગુજરાતી પસંદ કરો અને બોલવા માટે MIC દબાવો",
+      sidebarHeading: "શાહી અનુક્રમણિકા",
+      placeholder: "MIC દબાવીને બોલો અથવા શ્રીરામ, શિવાજી મહારાજ, મહારાણા પ્રતાપ લખો...",
+      searchBtn: "શોધો",
+      secQuizTitle: "✦ તમારા ઐતિહાસિક જ્ઞાનની કસોટી કરો ✦",
+      secQuizSub: "રામાયણ, મરાઠા અને રાજપૂત ઇતિહાસના પ્રશ્નોના જવાબ આપો",
+      nextQuizBtn: "આગળનો પ્રશ્ન →",
+      switchedMsg: "ભાષા ગુજરાતીમાં બદલવામાં આવી છે. હવે તમે ગુજરાતીમાં બોલી કે લખી શકો છો!"
+    }
+  };
+
+  function populateVoices() {
+    if (!("speechSynthesis" in window)) return;
+    availableVoices = window.speechSynthesis.getVoices();
+    const select = document.getElementById("voiceSelect");
+    if (!select) return;
+    const prevValue = select.value;
+    select.innerHTML = "";
+
+    const defaultOpt = document.createElement("option");
+    defaultOpt.value = "";
+    defaultOpt.textContent = "Auto Narrator Voice";
+    select.appendChild(defaultOpt);
+
+    availableVoices.forEach((v, idx) => {
+      const opt = document.createElement("option");
+      opt.value = idx;
+      opt.textContent = `${v.name.replace(/Microsoft |Google /g, "")} (${v.lang})`;
+      select.appendChild(opt);
+    });
+
+    if (prevValue) select.value = prevValue;
+  }
+
+  if ("speechSynthesis" in window) {
+    populateVoices();
+    window.speechSynthesis.onvoiceschanged = populateVoices;
+  }
+
+  function previewVoice() {
+    const sample = currentLang === "gu"
+      ? "નમસ્કાર! હું આચાર્ય ઐતિહાસિક છું."
+      : currentLang === "hi"
+      ? "नमस्कार! मैं आचार्य ऐतिहासिक हूँ।"
+      : "Namaskar! I am Acharya Itihasik.";
+    speakText(sample);
+  }
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    const t = uiTranslations[lang];
+
+    // Toggle active buttons in both navbar and chatbot bar
+    ["En", "Hi", "Gu"].forEach(code => {
+      const lower = code.toLowerCase();
+      document.getElementById("topLang" + code).classList.toggle("active", lower === lang);
+      document.getElementById("botLang" + code).classList.toggle("active", lower === lang);
+    });
+
+    // Update page texts
+    document.getElementById("navHome").textContent = t.navHome;
+    document.getElementById("navChronicles").textContent = t.navChronicles;
+    document.getElementById("navBot").textContent = t.navBot;
+    document.getElementById("navQuiz").textContent = t.navQuiz;
+    document.getElementById("heroTag").textContent = t.heroTag;
+    document.getElementById("heroTitle").textContent = t.heroTitle;
+    document.getElementById("heroDesc").textContent = t.heroDesc;
+    document.getElementById("heroBtn1").textContent = t.heroBtn1;
+    document.getElementById("heroBtn2").textContent = t.heroBtn2;
+    document.getElementById("secPillarsTitle").textContent = t.secPillarsTitle;
+    document.getElementById("secPillarsSub").textContent = t.secPillarsSub;
+    document.getElementById("card1Title").textContent = t.card1Title;
+    document.getElementById("card1Desc").textContent = t.card1Desc;
+    document.getElementById("card1Btn").textContent = t.card1Btn;
+    document.getElementById("card2Title").textContent = t.card2Title;
+    document.getElementById("card2Desc").textContent = t.card2Desc;
+    document.getElementById("card2Btn").textContent = t.card2Btn;
+    document.getElementById("card3Title").textContent = t.card3Title;
+    document.getElementById("card3Desc").textContent = t.card3Desc;
+    document.getElementById("card3Btn").textContent = t.card3Btn;
+    document.getElementById("card4Title").textContent = t.card4Title;
+    document.getElementById("card4Desc").textContent = t.card4Desc;
+    document.getElementById("card4Btn").textContent = t.card4Btn;
+    document.getElementById("secBotTitle").textContent = t.secBotTitle;
+    document.getElementById("secBotSub").textContent = t.secBotSub;
+    document.getElementById("sidebarHeading").textContent = t.sidebarHeading;
+    document.getElementById("userInput").placeholder = t.placeholder;
+    document.getElementById("searchBtn").textContent = t.searchBtn;
+    document.getElementById("secQuizTitle").textContent = t.secQuizTitle;
+    document.getElementById("secQuizSub").textContent = t.secQuizSub;
+    document.getElementById("nextQuizBtn").textContent = t.nextQuizBtn;
+    document.getElementById("voiceStatus").textContent = `Language: ${t.langName} (${t.locale}) • Click MIC to speak`;
+
+    appendBotMessage(t.langName, t.switchedMsg);
+    speakText(t.switchedMsg);
+  }
+
+  function toggleTTS() {
+    ttsEnabled = !ttsEnabled;
+    const btn = document.getElementById("ttsBtn");
+    btn.textContent = ttsEnabled ? "Voice: ON" : "Voice: OFF";
+    btn.classList.toggle("active", ttsEnabled);
+    if (!ttsEnabled) stopSpeaking();
+  }
+
+  function stopSpeaking() {
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+  }
+
+  function speakText(text) {
+    if (!ttsEnabled || !("speechSynthesis" in window)) return;
+    stopSpeaking();
+    const utterance = new SpeechSynthesisUtterance(text);
+    const targetLocale = uiTranslations[currentLang].locale;
+    utterance.lang = targetLocale;
+    utterance.rate = 0.92;
+    utterance.pitch = 0.95;
+
+    const select = document.getElementById("voiceSelect");
+    if (select && select.value !== "" && availableVoices[select.value]) {
+      utterance.voice = availableVoices[select.value];
+    } else if (availableVoices.length > 0) {
+      // Automatically pick the best matching voice for English, Hindi, or Gujarati
+      const langPrefix = currentLang;
+      const matchedVoice = availableVoices.find(v => v.lang.toLowerCase().startsWith(langPrefix))
+                        || availableVoices.find(v => v.lang.toLowerCase().includes("in"));
+      if (matchedVoice) utterance.voice = matchedVoice;
+    }
+
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function startVoiceCommand() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const statusEl = document.getElementById("voiceStatus");
+    const micBtn = document.getElementById("micBtn");
+
+    if (!SpeechRecognition) {
+      statusEl.textContent = "Voice not supported in this browser — use Chrome or Edge.";
+      return;
+    }
+
+    stopSpeaking();
+    const recognition = new SpeechRecognition();
+    recognition.lang = uiTranslations[currentLang].locale;
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => {
+      micBtn.classList.add("listening");
+      micBtn.textContent = "LISTENING...";
+      statusEl.textContent = `Listening (${uiTranslations[currentLang].langName})... Speak now!`;
+    };
+
+    recognition.onresult = (event) => {
+      const spokenText = event.results[0][0].transcript;
+      statusEl.textContent = 'Heard: "' + spokenText + '"';
+      document.getElementById("userInput").value = spokenText;
+      sendMessage();
+    };
+
+    recognition.onerror = (event) => {
+      statusEl.textContent = "Mic error (" + event.error + ") — please allow microphone access.";
+    };
+
+    recognition.onend = () => {
+      micBtn.classList.remove("listening");
+      micBtn.textContent = "MIC";
+    };
+
+    recognition.start();
+  }
+
+  // ================= MULTI-LANGUAGE HISTORICAL DATABASE =================
+  const historyDB = [
+    {
+      title: "Overview of Ramayana & Sage Valmiki",
+      title_hi: "रामायण का परिचय और महर्षि वाल्मीकि",
+      title_gu: "રામાયણનો પરિચય અને મહર્ષિ વાલ્મીકિ",
+      era: "Treta Yuga • Adi Kavya",
+      keywords: ["ramayana", "valmiki", "adi kavya", "tulsidas", "रामायण", "वाल्मीकि", "રામાયણ", "વાલ્મીકિ"],
+      content: "Composed in Sanskrit by Maharishi Valmiki (Adi Kavi), the Ramayana spans 24,000 verses across seven Kandas. Set in Treta Yuga, it narrates the life of Shri Rama of Ayodhya as an ideal of Dharma, truth, and duty. Later, Saint Tulsidas composed the Ramcharitmanas in Awadhi.",
+      hi: "महर्षि वाल्मीकि (आदिकवि) द्वारा संस्कृत में रचित रामायण सात कांडों और २४,००० श्लोकों का महाकाव्य है। त्रेता युग में आधारित यह ग्रंथ अयोध्या के प्रभु श्रीराम के धर्म, सत्य और कर्तव्य के आदर्श जीवन का वर्णन करता है। बाद में गोस्वामी तुलसीदास जी ने अवधी में श्रीरामचरितमानस की रचना की।",
+      gu: "મહર્ષિ વાલ્મીકિ (આદિકવિ) દ્વારા સંસ્કૃતમાં રચિત રામાયણ સાત કાંડ અને ૨૪,૦૦૦ શ્લોકોનું મહાકાવ્ય છે. ત્રેતા યુગમાં આધારિત આ ગ્રંથ અયોધ્યાના પ્રભુ શ્રીરામના ધર્મ, સત્ય અને કર્તવ્યના આદર્શ જીવનનું વર્ણન કરે છે. પાછળથી સંત તુલસીદાસજીએ અવધીમાં રામચરિતમાનસની રચના કરી.",
+      related: ["Shri Rama & Suryavansha", "Seven Kandas of Ramayana", "Ayodhya & Ram Rajya"]
+    },
+    {
+      title: "Shri Rama & Suryavansha (Ikshvaku Dynasty)",
+      title_hi: "प्रभु श्रीराम और सूर्यवंश (इक्ष्वाकु वंश)",
+      title_gu: "પ્રભુ શ્રીરામ અને સૂર્યવંશ (ઇક્ષ્વાકુ વંશ)",
+      era: "Treta Yuga • Maryada Purushottam",
+      keywords: ["rama", "shri ram", "ram", "suryavansha", "ikshvaku", "राम", "श्रीराम", "રામ", "શ્રીરામ"],
+      content: "Born in Ayodhya to King Dasharatha and Queen Kaushalya of the solar Ikshvaku dynasty, Shri Rama is revered as Maryada Purushottam. He broke Lord Shiva's bow Pinaka at Mithila to wed Sita, honored a 14-year forest exile, vanquished Ravana in Lanka, and established Ram Rajya.",
+      hi: "अयोध्या में सूर्यवंशी इक्ष्वाकु कुल के राजा दशरथ और माता कौशल्या के पुत्र प्रभु श्रीराम मर्यादा पुरुषोत्तम के रूप में पूजे जाते हैं। उन्होंने मिथिला में शिव धनुष पिनाक तोड़कर माता सीता से विवाह किया, १४ वर्ष का वनवास स्वीकार किया, लंका में रावण का वध किया और आदर्श रामराज्य की स्थापना की।",
+      gu: "અયોધ્યામાં સૂર્યવંશી ઇક્ષ્વાકુ કુળના રાજા દશરથ અને માતા કૌશલ્યાના પુત્ર પ્રભુ શ્રીરામ મર્યાદા પુરુષોત્તમ તરીકે પૂજાય છે. તેમણે મિથિલામાં શિવધનુષ પિનાક તોડી માતા સીતા સાથે વિવાહ કર્યા, ૧૪ વર્ષનો વનવાસ સ્વીકાર્યો, લંકામાં રાવણનો વધ કર્યો અને આદર્શ રામરાજ્યની સ્થાપના કરી.",
+      related: ["Mata Sita & Janakpur", "Lord Hanuman & Sundara Kanda", "Ravana & The Battle of Lanka"]
+    },
+    {
+      title: "Mata Sita & Janakpur",
+      title_hi: "माता सीता और जनकपुर",
+      title_gu: "માતા સીતા અને જનકપુર",
+      era: "Treta Yuga • Princess of Mithila",
+      keywords: ["sita", "janaki", "mithila", "janakpur", "सीता", "जानकी", "સીતા", "જાનકી"],
+      content: "Daughter of King Janaka of Mithila, Mata Sita accompanied Shri Rama into the 14-year exile. Abducted by Ravana to Lanka's Ashoka Vatika, she remained steadfast in her devotion until rescued, and later raised Lava and Kusha at Sage Valmiki's ashram.",
+      hi: "मिथिला के राजा जनक की पुत्री माता सीता ने प्रभु श्रीराम के साथ १४ वर्षों का वनवास स्वीकार किया। रावण द्वारा छल से हरण कर लंका की अशोक वाटिका में रखे जाने पर भी वे अपने धर्म और भक्ति पर अडिग रहीं। बाद में महर्षि वाल्मीकि के आश्रम में उन्होंने लव और कुश का पालन-पोषण किया।",
+      gu: "મિથિલાના રાજા જનકની પુત્રી માતા સીતાએ પ્રભુ શ્રીરામ સાથે ૧૪ વર્ષનો વનવાસ સ્વીકાર્યો. રાવણ દ્વારા લંકાની અશોક વાટિકામાં બંદી બનાવાયા છતાં તેઓ પોતાના ધર્મ અને ભક્તિ પર અડગ રહ્યાં. પાછળથી મહર્ષિ વાલ્મીકિના આશ્રમમાં તેમણે લવ અને કુશનો ઉછેર કર્યો.",
+      related: ["Shri Rama & Suryavansha", "Lord Hanuman & Sundara Kanda"]
+    },
+    {
+      title: "Lakshmana, Bharata & Shatrughna",
+      title_hi: "लक्ष्मण, भरत और शत्रुघ्न",
+      title_gu: "લક્ષ્મણ, ભરત અને શત્રુઘ્ન",
+      era: "Treta Yuga • Brothers of Ayodhya",
+      keywords: ["lakshmana", "laxman", "bharata", "shatrughna", "लक्ष्मण", "भरत", "લક્ષ્મણ", "ભરત"],
+      content: "Lakshmana guarded Shri Rama and Sita sleeplessly for 14 years in exile and defeated Indrajit in Lanka. Bharata placed Rama's Padukas on Ayodhya's throne and ruled as a humble regent from Nandigram, faithfully assisted by Shatrughna.",
+      hi: "लक्ष्मण जी ने १४ वर्षों तक वनवास में बिना सोए प्रभु श्रीराम और माता सीता की सेवा की तथा लंका युद्ध में मेघनाद का वध किया। भरत जी ने श्रीराम की चरण पादुकाओं को सिंहासन पर रखकर नंदीग्राम से तपस्वी की भांति अयोध्या का शासन संभाला, जिसमें शत्रुघ्न जी ने उनका पूरा साथ दिया।",
+      gu: "લક્ષ્મણજીએ ૧૪ વર્ષના વનવાસમાં નિદ્રા ત્યાગીને પ્રભુ શ્રીરામ અને માતા સીતાની સેવા કરી અને લંકા યુદ્ધમાં ઇન્દ્રજિતનો વધ કર્યો. ભરતજીએ શ્રીરામની ચરણ પાદુકાઓને સિંહાસન પર સ્થાપી નંદીગ્રામથી અયોધ્યાનું શાસન ચલાવ્યું, જેમાં શત્રુઘ્નજીએ તેમનો સાથ આપ્યો.",
+      related: ["Shri Rama & Suryavansha", "Ayodhya & Ram Rajya"]
+    },
+    {
+      title: "Lord Hanuman & Sundara Kanda",
+      title_hi: "भगवान हनुमान और सुंदरकांड",
+      title_gu: "ભગવાન હનુમાન અને સુંદરકાંડ",
+      era: "Treta Yuga • Devotee of Shri Rama",
+      keywords: ["hanuman", "sundara kanda", "sanjeevani", "हनुमान", "सुंदरकांड", "હનુમાન", "સુંદરકાંડ"],
+      content: "In Sundara Kanda, Lord Hanuman leaped across the ocean to Lanka, found Mata Sita in Ashoka Vatika, and delivered Rama's ring. During the war in Lanka, he carried the Dronagiri mountain bearing the Sanjeevani herb to save Lakshmana.",
+      hi: "सुंदरकांड में पवनपुत्र हनुमान जी विशाल समुद्र लांघकर लंका पहुंचे, अशोक वाटिका में माता सीता को श्रीराम की मुद्रिका दी और लंका दहन किया। युद्ध में लक्ष्मण जी के मूर्छित होने पर वे हिमालय से संजीवनी बूटी सहित पूरा द्रोणागिरि पर्वत उठा लाए।",
+      gu: "સુંદરકાંડમાં પવનપુત્ર હનુમાનજી વિશાળ સમુદ્ર ઓળંગીને લંકા પહોંચ્યા, અશોક વાટિકામાં માતા સીતાને શ્રીરામની મુદ્રિકા આપી અને લંકા દહન કર્યું. યુદ્ધમાં લક્ષ્મણજી મૂર્છિત થતાં તેઓ હિમાલયથી સંજીવની બુટ્ટી સાથે આખો દ્રોણાગિરિ પર્વત ઉપાડી લાવ્યા.",
+      related: ["Ram Setu, Sugriva & Vibhishana", "Ravana & The Battle of Lanka"]
+    },
+    {
+      title: "Ravana & The Battle of Lanka",
+      title_hi: "रावण और लंका का महायुद्ध",
+      title_gu: "રાવણ અને લંકાનું મહાયુદ્ધ",
+      era: "Treta Yuga • Yuddha Kanda",
+      keywords: ["ravana", "lanka", "kumbhakarna", "रावण", "लंका", "રાવણ", "લંકા"],
+      content: "In Yuddha Kanda, Shri Rama's Vanara army battled Lanka's forces led by Kumbhakarna, Indrajit, and Ravana. Reciting the Aditya Hridayam hymn, Shri Rama defeated Ravana with the Brahmastra on Vijaya Dashami.",
+      hi: "युद्धकांड में प्रभु श्रीराम की वानर सेना ने कुंभकर्ण, इंद्रजीत और रावण की सेना से भीषण युद्ध किया। महर्षि अगस्त्य द्वारा दिए गए आदित्य हृदय स्तोत्र का पाठ कर श्रीराम ने विजयादशमी के दिन ब्रह्मास्त्र से रावण का वध किया।",
+      gu: "યુદ્ધકાંડમાં પ્રભુ શ્રીરામની વાનર સેનાએ કુંભકર્ણ, ઇન્દ્રજિત અને રાવણની સેના સામે ભીષણ યુદ્ધ કર્યું. ઋષિ અગસ્ત્યે આપેલા આદિત્ય હૃદય સ્તોત્રનો પાઠ કરીને શ્રીરામે વિજયાદશમીના દિવસે બ્રહ્માસ્ત્રથી રાવણનો વધ કર્યો.",
+      related: ["Lord Hanuman & Sundara Kanda", "Ayodhya & Ram Rajya"]
+    },
+    {
+      title: "Ram Setu, Sugriva & Vibhishana",
+      title_hi: "रामसेतु, सुग्रीव और विभीषण",
+      title_gu: "રામસેતુ, સુગ્રીવ અને વિભીષણ",
+      era: "Treta Yuga • Alliances",
+      keywords: ["ram setu", "sugriva", "vibhishana", "रामसेतु", "सुग्रीव", "विभीषण", "રામસેતુ", "સુગ્રીવ", "વિભીષણ"],
+      content: "Engineered by Nala and Neela, the Vanara Sena built Ram Setu across the ocean to Lanka. Vibhishana, Ravana's righteous brother, allied with Shri Rama and was later crowned king of Lanka.",
+      hi: "नल और नील के कौशल से वानर सेना ने समुद्र पर विशाल रामसेतु का निर्माण किया। सुग्रीव की मित्रता और रावण के धर्मपरायण भाई विभीषण के सहयोग से श्रीराम ने लंका पर विजय प्राप्त की और विभीषण को लंका का राजा बनाया।",
+      gu: "નળ અને નીલના કૌશલ્યથી વાનર સેનાએ સમુદ્ર પર વિશાળ રામસેતુનું નિર્માણ કર્યું. સુગ્રીવની મિત્રતા અને રાવણના ધર્મનિષ્ઠ ભાઈ વિભીષણના સહયોગથી શ્રીરામે લંકા પર વિજય મેળવ્યો અને વિભીષણને લંકાના રાજા બનાવ્યા.",
+      related: ["Lord Hanuman & Sundara Kanda", "Ravana & The Battle of Lanka"]
+    },
+    {
+      title: "Seven Kandas of Ramayana",
+      title_hi: "रामायण के सात कांड",
+      title_gu: "રામાયણના સાત કાંડ",
+      era: "Treta Yuga • Structure",
+      keywords: ["kanda", "kandas", "कांड", "કાંડ"],
+      content: "The seven chapters of Valmiki Ramayana are: 1. Bala Kanda, 2. Ayodhya Kanda, 3. Aranya Kanda, 4. Kishkindha Kanda, 5. Sundara Kanda, 6. Yuddha Kanda, and 7. Uttara Kanda.",
+      hi: "वाल्मीकि रामायण के सात कांड हैं: १. बालकांड, २. अयोध्याकांड, ३. अरण्यकांड, ४. किष्किंधाकांड, ५. सुंदरकांड, ६. युद्धकांड, और ७. उत्तरकांड।",
+      gu: "વાલ્મીકિ રામાયણના સાત કાંડ છે: ૧. બાલકાંડ, ૨. અયોધ્યાકાંડ, ૩. અરણ્યકાંડ, ૪. કિષ્કિંધાકાંડ, ૫. સુંદરકાંડ, ૬. યુદ્ધકાંડ, અને ૭. ઉત્તરકાંડ.",
+      related: ["Overview of Ramayana & Sage Valmiki", "Ayodhya & Ram Rajya"]
+    },
+    {
+      title: "Ayodhya & Ram Rajya",
+      title_hi: "अयोध्या और रामराज्य",
+      title_gu: "અયોધ્યા અને રામરાજ્ય",
+      era: "Treta Yuga • Ideal Governance",
+      keywords: ["ayodhya", "ram rajya", "deepavali", "अयोध्या", "रामराज्य", "અયોધ્યા", "રામરાજ્ય"],
+      content: "Ayodhya welcomed Shri Rama's return with rows of lamps (Deepavali), inaugurating Ram Rajya—celebrated for justice, prosperity, and harmony.",
+      hi: "१४ वर्ष के वनवास के बाद श्रीराम के अयोध्या लौटने पर नगरवासियों ने दीप जलाकर दीपावली मनाई। सरयू तट पर राज्याभिषेक के साथ न्याय, सुख और समृद्धि से परिपूर्ण रामराज्य का आरंभ हुआ।",
+      gu: "૧૪ વર્ષના વનવાસ બાદ શ્રીરામના અયોધ્યા પરત ફરવા પર નગરજનોએ દીપ પ્રગટાવી દિવાળી ઉજવી. સરયૂ તટે રાજ્યાભિષેક સાથે ન્યાય, સુખ અને સમૃદ્ધિથી ભરપૂર રામરાજ્યનો પ્રારંભ થયો.",
+      related: ["Shri Rama & Suryavansha", "Chhatrapati Shivaji Maharaj"]
+    },
+    {
+      title: "Chhatrapati Shivaji Maharaj (1630–1680)",
+      title_hi: "छत्रपति शिवाजी महाराज (१६३०–१६८०)",
+      title_gu: "છત્રપતિ શિવાજી મહારાજ (૧૬૩૦–૧૬૮૦)",
+      era: "Maratha Empire • Founder of Hindavi Swarajya",
+      keywords: ["shivaji", "chhatrapati", "bhonsle", "swarajya", "शिवाजी", "छत्रपति", "શિવાજી", "છત્રપતિ"],
+      content: "Born at Shivneri Fort in 1630, Chhatrapati Shivaji Maharaj established Hindavi Swarajya, pioneered guerrilla warfare (Ganimi Kava) and the Maratha Navy, and was crowned Chhatrapati at Raigad in 1674 with his Ashtapradhan council.",
+      hi: "१९ फरवरी १६३० को शिवनेरी दुर्ग में जन्मे छत्रपति शिवाजी महाराज ने हिंदवी स्वराज्य की स्थापना की। गनिमी कावा (छापामार युद्धनीति), दुर्ग निर्माण और भारतीय नौसेना के जनक के रूप में उन्होंने ६ जून १६७४ को रायगढ़ दुर्ग पर छत्रपति के रूप में राज्याभिषेक कराया और अष्टप्रधान मंडल की स्थापना की।",
+      gu: "૧૯ ફેબ્રુઆરી ૧૬૩૦ના રોજ શિવનેરી કિલ્લા પર જન્મેલા છત્રપતિ શિવાજી મહારાજે હિંદવી સ્વરાજ્યની સ્થાપના કરી. ગનિમી કાવા યુદ્ધનીતિ, કિલ્લા નિર્માણ અને ભારતીય નૌકાદળના જનક તરીકે તેમણે ૬ જૂન ૧૬૭૪ના રોજ રાયગઢ કિલ્લા પર છત્રપતિ તરીકે રાજ્યાભિષેક કરાવ્યો અને અષ્ટપ્રધાન મંડળની રચના કરી.",
+      related: ["Chhatrapati Sambhaji Maharaj", "Battle of Pratapgad", "Maratha Hill & Sea Forts"]
+    },
+    {
+      title: "Rajmata Jijabai (1598–1674)",
+      title_hi: "राजमाता जीजाबाई (१५९८–१६७४)",
+      title_gu: "રાજમાતા જીજાબાઈ (૧૫૯૮–૧૬७४)",
+      era: "Maratha Empire • Rajmata",
+      keywords: ["jijabai", "jijamata", "जीजाबाई", "જીજાબાઈ"],
+      content: "Mother and mentor of Chhatrapati Shivaji Maharaj, Rajmata Jijabai instilled the ideals of Ramayana, justice, and self-rule in young Shivaji while administering the Pune jagir.",
+      hi: "छत्रपति शिवाजी महाराज की माता और गुरु राजमाता जीजाबाई ने बालक शिवाजी को रामायण, महाभारत और स्वराज्य के संस्कार दिए तथा पुणे जागीर का कुशल प्रशासन संभाला।",
+      gu: "છત્રપતિ શિવાજી મહારાજના માતા અને ગુરુ રાજમાતા જીજાબાઈએ બાળ શિવાજીને રામાયણ, મહાભારત અને સ્વરાજ્યના સંસ્કાર આપ્યા તથા પુણે જાગીરનું કુશળ સંચાલન કર્યું.",
+      related: ["Chhatrapati Shivaji Maharaj", "Overview of Ramayana & Sage Valmiki"]
+    },
+    {
+      title: "Chhatrapati Sambhaji Maharaj (1657–1689)",
+      title_hi: "छत्रपति संभाजी महाराज (१६५७–१६८९)",
+      title_gu: "છત્રપતિ સંભાજી મહારાજ (૧૬५७–૧૬૮૯)",
+      era: "Maratha Empire • Second Chhatrapati",
+      keywords: ["sambhaji", "chhava", "संभाजी", "સંભાજી"],
+      content: "Author of Sanskrit treatise 'Budhbhushanam', Chhatrapati Sambhaji Maharaj fought Aurangzeb's Deccan invasion for nine years without losing a major fort before his supreme sacrifice at Tulapur in 1689.",
+      hi: "संस्कृत ग्रंथ 'बुधभूषणम' के रचयिता छत्रपति संभाजी महाराज ने ९ वर्षों तक औरंगजेब की विशाल सेना से अजेय युद्ध किया और एक भी प्रमुख दुर्ग नहीं खोया। १६८९ में तुलापुर में उन्होंने धर्म और स्वराज्य के लिए सर्वोच्च बलिदान दिया।",
+      gu: "સંસ્કૃત ગ્રંથ 'બુધભૂષણમ્'ના રચયિતા છત્રપતિ સંભાજી મહારાજે ૯ વર્ષ સુધી ઔરંગઝેબની વિશાળ સેના સામે અજેય યુદ્ધ કર્યું અને એક પણ મુખ્ય કિલ્લો ગુમાવ્યો નહીં. ૧૬૮૯માં તુલાપુર ખાતે તેમણે ધર્મ અને સ્વરાજ્ય માટે સર્વોચ્ચ બલિદાન આપ્યું.",
+      related: ["Tarabai Bhonsale", "Chhatrapati Shivaji Maharaj"]
+    },
+    {
+      title: "Tarabai Bhonsale (1675–1761)",
+      title_hi: "महारानी ताराबाई (१६७५–१७६१)",
+      title_gu: "મહારાણી તારાબાઈ (૧૬७५–૧૭૬૧)",
+      era: "Maratha Empire • Maharani & Regent",
+      keywords: ["tarabai", "ताराबाई", "તારાબાઈ"],
+      content: "Maharani Tarabai led the Maratha resistance from 1700 to 1707 after Chhatrapati Rajaram's passing, launching cavalry offensives into Mughal territories and preserving Swarajya.",
+      hi: "छत्रपति राजाराम के निधन के बाद १७०० से १७०७ तक महारानी ताराबाई ने स्वयं युद्ध का नेतृत्व करते हुए मुगल क्षेत्रों में आक्रमण किए और मराठा स्वराज्य को सुरक्षित रखा।",
+      gu: "છત્રપતિ રાજારામના અવસાન બાદ ૧૭૦૦ થી ૧૭૦૭ સુધી મહારાણી તારાબાઈએ સ્વયં યુદ્ધનું નેતૃત્વ કરીને મુઘલ પ્રદેશો પર આક્રમણ કર્યા અને મરાઠા સ્વરાજ્યની રક્ષા કરી.",
+      related: ["Chhatrapati Sambhaji Maharaj", "Peshwa Bajirao I"]
+    },
+    {
+      title: "Peshwa Bajirao I (1700–1740)",
+      title_hi: "पेशवा बाजीराव प्रथम (१७००–१७४०)",
+      title_gu: "પેશવા બાજીરાવ પ્રથમ (૧૭૦૦–૧७४०)",
+      era: "Maratha Empire • Undefeated General",
+      keywords: ["bajirao", "peshwa", "बाजीराव", "પેશવા", "બાજીરાવ"],
+      content: "Undefeated across 40+ battles, Peshwa Bajirao I expanded the Maratha Empire across central and northern India through rapid cavalry warfare.",
+      hi: "४० से अधिक युद्धों में अजेय रहे पेशवा बाजीराव प्रथम ने अपनी तीव्र घुड़सवार सेना के बल पर मालवा, गुजरात और दिल्ली तक मराठा साम्राज्य का विस्तार किया।",
+      gu: "૪૦થી વધુ યુદ્ધોમાં અજેય રહેલા પેશવા બાજીરાવ પ્રથમે પોતાની ઝડપી ઘોડેસવાર સેનાના બળે માળવા, ગુજરાત અને દિલ્હી સુધી મરાઠા સામ્રાજ્યનો વિસ્તાર કર્યો.",
+      related: ["Third Battle of Panipat", "Mahadji Shinde"]
+    },
+    {
+      title: "Tanaji Malusare & Battle of Sinhagad (1670)",
+      title_hi: "तानाजी मालुसरे और सिंहगढ़ युद्ध (१६७०)",
+      title_gu: "તાનાજી માલુસરે અને સિંહગઢ યુદ્ધ (૧૬७०)",
+      era: "Maratha Empire • Subhedar",
+      keywords: ["tanaji", "sinhagad", "तानाजी", "सिंहगढ़", "તાનાજી", "સિંહગઢ"],
+      content: "Subhedar Tanaji Malusare scaled Kondhana Fort at night in February 1670, winning the fort for Swarajya at the cost of his life ('Gad aala, pan Sinha gela').",
+      hi: "फरवरी १६७० में सूबेदार तानाजी मालुसरे ने अपने पुत्र के विवाह को स्थगित कर रात के अंधेरे में कोंढाणा दुर्ग पर चढ़ाई की और वीरगति पाकर भी दुर्ग जीत लिया—'गड आला, पण सिंह गेला'।",
+      gu: "ફેબ્રુઆરી ૧૬૭૦માં સુબેદાર તાનાજી માલુસરેએ પોતાના પુત્રના લગ્ન મુલતવી રાખી રાત્રે કોંઢાણા કિલ્લા પર ચઢાઈ કરી અને વીરગતિ પામીને પણ કિલ્લો જીતી લીધો—'ગઢ આલા, પણ સિંહ ગેલા'.",
+      related: ["Chhatrapati Shivaji Maharaj", "Baji Prabhu Deshpande & Battle of Pavan Khind"]
+    },
+    {
+      title: "Baji Prabhu Deshpande & Battle of Pavan Khind (1660)",
+      title_hi: "बाजी प्रभु देशपांडे और पावनखिंड युद्ध (१६६०)",
+      title_gu: "બાજી પ્રભુ દેશપાંડે અને પાવનખિંડ યુદ્ધ (૧૬૬०)",
+      era: "Maratha Empire • Hero of Ghodkhind",
+      keywords: ["baji prabhu", "pavan khind", "बाजी प्रभु", "પાવાનખિંડ"],
+      content: "Baji Prabhu Deshpande and 300 soldiers held Ghodkhind pass against thousands of pursuing troops until Shivaji Maharaj safely reached Vishalgad.",
+      hi: "जुलाई १६६० में बाजी प्रभु देशपांडे और ३०० वीर सैनिकों ने घोड़खिंड दर्रे पर हजारों शत्रुओं को तब तक रोके रखा जब तक शिवाजी महाराज सुरक्षित विशालगढ़ नहीं पहुंच गए।",
+      gu: "જુલાઈ ૧૬૬૦માં બાજી પ્રભુ દેશપાંડે અને ૩૦૦ વીર સૈનિકોએ ઘોડખિંડ ઘાટ પર હજારો શત્રુઓને ત્યાં સુધી રોકી રાખ્યા જ્યાં સુધી શિવાજી મહારાજ સુરક્ષિત વિશાળગઢ ન પહોંચ્યા.",
+      related: ["Chhatrapati Shivaji Maharaj", "Tanaji Malusare & Battle of Sinhagad"]
+    },
+    {
+      title: "Ahilyabai Holkar (1725–1795)",
+      title_hi: "पुण्यश्लोक अहिल्याबाई होलकर (१७२५–१७९५)",
+      title_gu: "પુણ્યશ્લોક અહિલ્યાબાઈ હોલકર (૧૭૨૫–૧૭૯૫)",
+      era: "Maratha Confederacy • Queen of Malwa",
+      keywords: ["ahilyabai", "holkar", "अहिल्याबाई", "અહિલ્યાબાઈ"],
+      content: "Ruler of Malwa from Maheshwar, Punyashlok Ahilyabai Holkar promoted handloom crafts and rebuilt temples and ghats across India, including Kashi Vishwanath and Somnath.",
+      hi: "महेश्वर से मालवा का शासन करने वाली पुण्यश्लोक अहिल्याबाई होलकर ने काशी विश्वनाथ और सोमनाथ सहित पूरे भारत में सैकड़ों मंदिरों, घाटों और धर्मशालाओं का जीर्णोद्धार कराया।",
+      gu: "મહેશ્વરથી માળવાનું શાસન કરનાર પુણ્યશ્લોક અહિલ્યાબાઈ હોલકરે કાશી વિશ્વનાથ અને સોમનાથ સહિત સમગ્ર ભારતમાં સેંકડો મંદિરો, ઘાટ અને ધર્મશાળાઓનો જીર્ણોદ્ધાર કરાવ્યો.",
+      related: ["Mahadji Shinde", "Peshwa Bajirao I"]
+    },
+    {
+      title: "Mahadji Shinde (1730–1794)",
+      title_hi: "महादजी शिंदे (१७३०–१७९४)",
+      title_gu: "મહાદજી શિંદે (૧७३०–१७९४)",
+      era: "Maratha Confederacy • Statesman & General",
+      keywords: ["mahadji", "shinde", "scindia", "महादजी", "મહાદજી"],
+      content: "Mahadji Shinde revived Maratha power in North India after Panipat, defeated the British at Wadgaon (1779), and became protector of Delhi.",
+      hi: "पानीपत के बाद महादजी शिंदे ने उत्तर भारत में मराठा शक्ति को पुनः स्थापित किया, १७७९ में वडगांव में अंग्रेजों को पराजित किया और दिल्ली के रक्षक बने।",
+      gu: "પાણીપત બાદ મહાદજી શિંદેએ ઉત્તર ભારતમાં મરાઠા શક્તિને પુનઃ સ્થાપિત કરી, ૧૭૭૯માં વડગાંવ ખાતે અંગ્રેજોને હરાવ્યા અને દિલ્હીના રક્ષક બન્યા.",
+      related: ["Third Battle of Panipat", "Ahilyabai Holkar"]
+    },
+    {
+      title: "Kanhoji Angre & Maratha Navy",
+      title_hi: "कान्होजी आंग्रे और मराठा नौसेना",
+      title_gu: "કાન્હોજી આંગ્રે અને મરાઠા નૌકાદળ",
+      era: "Maratha Empire • Sarkhel",
+      keywords: ["kanhoji", "angre", "navy", "कान्होजी", "કાન્હોજી"],
+      content: "Grand Admiral Kanhoji Angre commanded the Maratha Navy along the Konkan coast, remaining undefeated against British, Portuguese, and Dutch fleets.",
+      hi: "सरखेल कान्होजी आंग्रे ने कोंकण तट पर मराठा नौसेना का नेतृत्व किया और ब्रिटिश, पुर्तगाली तथा डच नौसेनाओं के विरुद्ध जीवनभर अजेय रहे।",
+      gu: "સરખેલ કાન્હોજી આંગ્રેએ કોંકણ કિનારે મરાઠા નૌકાદળનું નેતૃત્વ કર્યું અને બ્રિટિશ, પોર્ટુગીઝ તથા ડચ નૌકાદળ સામે જીવનભર અજેય રહ્યા.",
+      related: ["Chhatrapati Shivaji Maharaj", "Maratha Hill & Sea Forts"]
+    },
+    {
+      title: "Rani Lakshmibai of Jhansi (1828–1858)",
+      title_hi: "झांसी की रानी लक्ष्मीबाई (१८२८–१८५८)",
+      title_gu: "ઝાંસીની રાણી લક્ષ્મીબાઈ (૧૮२८–૧૮૫८)",
+      era: "Maratha Heritage • Heroine of 1857",
+      keywords: ["lakshmibai", "jhansi", "लक्ष्मीबाई", "ઝાંસી", "લક્ષ્મીબાઈ"],
+      content: "Raised in Bithoor alongside Nana Saheb and Tatya Tope, Rani Lakshmibai led Jhansi's defense against British annexation during the 1857 uprising.",
+      hi: "बिठूर में नाना साहेब और तात्या टोपे के साथ शस्त्र शिक्षा प्राप्त करने वाली रानी लक्ष्मीबाई ने १८५७ के स्वतंत्रता संग्राम में 'मैं अपनी झांसी नहीं दूंगी' के संकल्प के साथ वीरगति प्राप्त की।",
+      gu: "બિઠૂરમાં નાના સાહેબ અને તાત્યા ટોપે સાથે શસ્ત્ર વિદ્યા મેળવનાર રાણી લક્ષ્મીબાઈએ ૧૮૫૭ના સ્વાતંત્ર્ય સંગ્રામમાં 'હું મારી ઝાંસી નહીં આપું'ના સંકલ્પ સાથે વીરગતિ મેળવી.",
+      related: ["Peshwa Bajirao I", "Mahadji Shinde"]
+    },
+    {
+      title: "Maharana Pratap (1540–1597)",
+      title_hi: "महाराणा प्रताप (१५४०–१५९७)",
+      title_gu: "મહારાણા પ્રતાપ (૧૫४०–१५९७)",
+      era: "Rajputana • Sisodia Ruler of Mewar",
+      keywords: ["maharana pratap", "pratap", "mewar", "महाराणा प्रताप", "प्रताप", "મહારાણા પ્રતાપ", "પ્રતાપ"],
+      content: "Sisodia ruler of Mewar (tracing lineage to Shri Rama's son Lava), Maharana Pratap resisted Mughal submission, fought at Haldighati (1576), and reclaimed western Mewar from his capital Chavand.",
+      hi: "मेवाड़ के सिसोदिया वंश के सूर्यवंशी शासक महाराणा प्रताप ने मुगल अधीनता स्वीकार करने से इनकार कर दिया। १५७६ में हल्दीघाटी के युद्ध के बाद अरावली की पहाड़ियों से संघर्ष जारी रखते हुए उन्होंने अधिकांश मेवाड़ पुनः जीत लिया और चावंड को राजधानी बनाया।",
+      gu: "મેવાડના સિસોદિયા વંશના સૂર્યવંશી શાસક મહારાણા પ્રતાપે મુઘલ આધીનતા સ્વીકારવાનો ઇનકાર કર્યો. ૧૫૭૬માં હલ્દીઘાટીના યુદ્ધ બાદ અરવલ્લીની પહાડીઓમાંથી સંઘર્ષ ચાલુ રાખીને તેમણે મોટાભાગનું મેવાડ ફરી જીતી લીધું અને ચાવંડને રાજધાની બનાવી.",
+      related: ["Battle of Haldighati", "Chetak & Bhama Shah", "Shri Rama & Suryavansha"]
+    },
+    {
+      title: "Chetak & Bhama Shah",
+      title_hi: "चेतक और भामाशाह",
+      title_gu: "ચેતક અને ભામાશા",
+      era: "Rajputana • Mewar",
+      keywords: ["chetak", "bhama shah", "चेतक", "भामाशाह", "ચેતક", "ભામાશા"],
+      content: "Chetak carried wounded Maharana Pratap to safety at Haldighati before collapsing, while minister Bhama Shah donated his entire fortune to fund Mewar's army.",
+      hi: "हल्दीघाटी युद्ध में घायल होने के बावजूद स्वामीभक्त अश्व चेतक ने महाराणा प्रताप को सुरक्षित स्थान तक पहुंचाया। वहीं मंत्री भामाशाह ने अपनी संपूर्ण संपत्ति मेवाड़ की सेना के लिए दान कर दी।",
+      gu: "હલ્દીઘાટી યુદ્ધમાં ઘાયલ થવા છતાં સ્વામીભક્ત અશ્વ ચેતકે મહારાણા પ્રતાપને સુરક્ષિત સ્થળે પહોંચાડ્યા. જ્યારે મંત્રી ભામાશાએ પોતાની સમગ્ર સંપત્તિ મેવાડની સેના માટે દાન કરી દીધી.",
+      related: ["Maharana Pratap", "Battle of Haldighati"]
+    },
+    {
+      title: "Prithviraj Chauhan (c. 1166–1192)",
+      title_hi: "पृथ्वीराज चौहान (११६६–११९२)",
+      title_gu: "પૃથ્વીરાજ ચૌહાણ (૧૧६६–૧૧૯૨)",
+      era: "Rajputana • Chahamana Ruler",
+      keywords: ["prithviraj", "chauhan", "tarain", "पृथ्वीराज", "પૃથ્વીરાજ"],
+      content: "Ruler of Ajmer and Delhi, Prithviraj Chauhan defeated Muhammad of Ghor in the First Battle of Tarain (1191) before falling in the Second Battle of Tarain (1192).",
+      hi: "अजमेर और दिल्ली के सम्राट पृथ्वीराज चौहान ने ११९१ में तराइन के प्रथम युद्ध में मुहम्मद गोरी को पराजित किया। उनकी वीरगाथा कवि चंदबरदाई के महाकाव्य 'पृथ्वीराज रासो' में वर्णित है।",
+      gu: "અજમેર અને દિલ્હીના સમ્રાટ પૃથ્વીરાજ ચૌહાણે ૧૧૯૧માં તરાઈનના પ્રથમ યુદ્ધમાં મુહમ્મદ ઘોરીને હરાવ્યો હતો. તેમની વીરગાથા કવિ ચંદબરદાઈના મહાકાવ્ય 'પૃથ્વીરાજ રાસો'માં વર્ણવાયેલી છે.",
+      related: ["Rana Sanga", "Bappa Rawal"]
+    },
+    {
+      title: "Rana Sanga (1482–1528)",
+      title_hi: "राणा सांगा (१४८२–१५२८)",
+      title_gu: "રાણા સાંગા (૧૪૮२–૧૫૨૮)",
+      era: "Rajputana • Unifier of Mewar",
+      keywords: ["rana sanga", "khanwa", "राणा सांगा", "રાણા સાંગા"],
+      content: "Rana Sanga united the Rajput clans and led a massive confederacy against Babur at the Battle of Khanwa in 1527 despite 80 battle scars.",
+      hi: "मेवाड़ के राणा सांगा ने सभी राजपूत वंशों को एकजुट किया और शरीर पर ८० घाव होने के बावजूद १५२७ में खानवा के युद्ध में बाबर की सेना का सामना किया।",
+      gu: "મેવાડના રાણા સાંગાએ તમામ રાજપૂત વંશોને એકજૂટ કર્યા અને શરીર પર ૮૦ ઘા હોવા છતાં ૧૫૨૭માં ખાનવાના યુદ્ધમાં બાબરની સેનાનો સામનો કર્યો.",
+      related: ["Maharana Pratap", "Rana Kumbha"]
+    },
+    {
+      title: "Rana Kumbha (1433–1468)",
+      title_hi: "राणा कुंभा (१४३३–१४६८)",
+      title_gu: "રાણા કુંભા (૧૪३३–૧૪६८)",
+      era: "Rajputana • Builder of Mewar",
+      keywords: ["rana kumbha", "kumbhalgarh", "राणा कुंभा", "રાણા કુંભા"],
+      content: "Rana Kumbha built the Vijay Stambha at Chittorgarh and fortified 32 forts across Mewar, including Kumbhalgarh with its 36-km wall.",
+      hi: "राणा कुंभा ने चित्तौड़गढ़ में नौ मंजिला विजय स्तंभ का निर्माण कराया और ३६ किलोमीटर लंबी दीवार वाले अजेय कुंभलगढ़ सहित मेवाड़ के ३२ दुर्गों को सुदृढ़ किया।",
+      gu: "રાણા કુંભાએ ચિત્તોડગઢમાં નવ માળના વિજય સ્તંભનું નિર્માણ કરાવ્યું અને ૩૬ કિલોમીટર લાંબી દીવાલ ધરાવતા અજેય કુંભલગઢ સહિત મેવાડના ૩૨ કિલ્લાઓ મજબૂત બનાવ્યા.",
+      related: ["Chittorgarh & Kumbhalgarh", "Rana Sanga"]
+    },
+    {
+      title: "Rani Padmini & Chittor (1303)",
+      title_hi: "रानी पद्मिनी और चित्तौड़ का जौहर (१३०३)",
+      title_gu: "રાણી પદ્મિની અને ચિત્તોડનો જૌહર (૧૩૦૩)",
+      era: "Rajputana • Queen of Mewar",
+      keywords: ["padmini", "jauhar", "chittor", "पद्मिनी", "પદ્મિની"],
+      content: "During Alauddin Khalji's 1303 siege of Chittorgarh, Gora and Badal rescued Rawal Ratan Singh, and Rani Padmini led the women of Chittor in Jauhar.",
+      hi: "१३०३ में अलाउद्दीन खिलजी के चित्तौड़ आक्रमण के समय वीर गोरा और बादल ने रावल रतन सिंह को मुक्त कराया, तथा रानी पद्मिनी के नेतृत्व में वीरांगनाओं ने स्वाभिमान की रक्षा हेतु जौहर किया।",
+      gu: "૧૩૦૩માં અલાઉદ્દીન ખિલજીના ચિત્તોડ આક્રમણ સમયે વીર ગોરા અને બાદલે રાવલ રતનસિંહને મુક્ત કરાવ્યા, તથા રાણી પદ્મિનીના નેતૃત્વમાં વીરાંગનાઓએ સ્વાભિમાનની રક્ષા માટે જૌહર કર્યું.",
+      related: ["Chittorgarh & Kumbhalgarh", "Bappa Rawal"]
+    },
+    {
+      title: "Bappa Rawal (8th Century CE)",
+      title_hi: "बप्पा रावल (८वीं शताब्दी)",
+      title_gu: "બપ્પા રાવળ (૮મી સદી)",
+      era: "Rajputana • Founder of Guhila Dynasty",
+      keywords: ["bappa rawal", "बप्पा रावल", "બપ્પા રાવળ"],
+      content: "Founder of the Guhila (Sisodia) dynasty at Chittorgarh, ruling as Diwan (steward) of Lord Eklingji.",
+      hi: "ऋषि हारीत राशि के आशीर्वाद से बप्पा रावल ने चित्तौड़गढ़ पर विजय प्राप्त कर मेवाड़ के गुहिल (सिसोदिया) वंश की स्थापना की और भगवान एकलिंगजी के दीवान के रूप में शासन किया।",
+      gu: "ઋષિ હારીત રાશિના આશીર્વાદથી બપ્પા રાવળે ચિત્તોડગઢ પર વિજય મેળવી મેવાડના ગુહિલ (સિસોદિયા) વંશની સ્થાપના કરી અને ભગવાન એકલિંગજીના દીવાન તરીકે શાસન કર્યું.",
+      related: ["Maharana Pratap", "Rana Kumbha"]
+    },
+    {
+      title: "Durgadas Rathore (1638–1718)",
+      title_hi: "वीर दुर्गादास राठौड़ (१६३८–१७१८)",
+      title_gu: "વીર દુર્ગાદાસ રાઠોડ (૧૬३८–१७१८)",
+      era: "Rajputana • Savior of Marwar",
+      keywords: ["durgadas", "rathore", "दुर्गादास", "દુર્ગાદાસ"],
+      content: "Veer Durgadas Rathore led a 30-year resistance to protect young Ajit Singh and restore Rathore rule in Marwar (Jodhpur).",
+      hi: "वीर दुर्गादास राठौड़ ने ३० वर्षों तक संघर्ष कर बालक अजीत सिंह की रक्षा की और मारवाड़ (जोधपुर) की स्वतंत्रता पुनः स्थापित की।",
+      gu: "વીર દુર્ગાદાસ રાઠોડે ૩૦ વર્ષ સુધી સંઘર્ષ કરીને બાળ અજીતસિંહની રક્ષા કરી અને મારવાડ (જોધપુર)ની સ્વતંત્રતા પુનઃ સ્થાપિત કરી.",
+      related: ["Maharana Pratap", "Chhatrapati Sambhaji Maharaj"]
+    },
+    {
+      title: "Battle of Pratapgad (1659)",
+      title_hi: "प्रतापगढ़ का युद्ध (१६५९)",
+      title_gu: "પ્રતાપગઢનું યુદ્ધ (૧६५९)",
+      era: "Major Battle • Swarajya",
+      keywords: ["pratapgad", "afzal khan", "प्रतापगढ़", "પ્રતાપગઢ"],
+      content: "Chhatrapati Shivaji Maharaj defeated Afzal Khan at Pratapgad Fort in November 1659 using Wagh Nakh and a coordinated Jawali forest ambush.",
+      hi: "नवंबर १६५९ में प्रतापगढ़ दुर्ग की तलहटी में छत्रपति शिवाजी महाराज ने वाघनख से अफजल खान का वध किया और जावली के घने जंगलों में उसकी सेना को परास्त किया।",
+      gu: "નવેમ્બર ૧૬૫૯માં પ્રતાપગઢ કિલ્લાની તળેટીમાં છત્રપતિ શિવાજી મહારાજે વાઘનખથી અફઝલ ખાનનો વધ કર્યો અને જાવળીના ગાઢ જંગલોમાં તેની સેનાને પરાસ્ત કરી.",
+      related: ["Chhatrapati Shivaji Maharaj", "Maratha Hill & Sea Forts"]
+    },
+    {
+      title: "Battle of Haldighati (1576)",
+      title_hi: "हल्दीघाटी का युद्ध (१५७६)",
+      title_gu: "હલ્દીઘાટીનું યુદ્ધ (૧૫७६)",
+      era: "Major Battle • Mewar",
+      keywords: ["haldighati", "हल्दीघाटी", "હલ્દીઘાટી"],
+      content: "Fought in June 1576 between Maharana Pratap's forces (with Hakim Khan Sur and Bhil archers) and the Mughal army led by Raja Man Singh I.",
+      hi: "१८ जून १५७६ को अरावली की हल्दीघाटी में महाराणा प्रताप, हकीम खान सूर और भील धनुर्धारियों की सेना ने मुगल सेना के विरुद्ध अद्वितीय पराक्रम दिखाया।",
+      gu: "૧૮ જૂન ૧૫૭૬ના રોજ અરવલ્લીની હલ્દીઘાટીમાં મહારાણા પ્રતાપ, હકીમ ખાન સૂર અને ભીલ ધનુર્ધારીઓની સેનાએ મુઘલ સેના સામે અદ્વિતીય પરાક્રમ બતાવ્યું.",
+      related: ["Maharana Pratap", "Chetak & Bhama Shah"]
+    },
+    {
+      title: "Third Battle of Panipat (1761)",
+      title_hi: "पानीपत का तृतीय युद्ध (१७६१)",
+      title_gu: "પાણીપતનું ત્રીજું યુદ્ધ (૧७६१)",
+      era: "Major Battle • Panipat",
+      keywords: ["panipat", "पानीपत", "પાણીપત"],
+      content: "Fought on 14 January 1761 between the Maratha army under Sadashivrao Bhau and Ahmad Shah Abdali's Afghan forces.",
+      hi: "१४ जनवरी १७६१ को सदाशिवराव भाऊ के नेतृत्व में मराठा सेना और अहमद शाह अब्दाली की अफगान सेना के बीच पानीपत का ऐतिहासिक युद्ध हुआ।",
+      gu: "૧૪ જાન્યુઆરી ૧૭૬૧ના રોજ સદાશિવરાવ ભાઉના નેતૃત્વમાં મરાઠા સેના અને અહમદ શાહ અબ્દાલીની અફઘાન સેના વચ્ચે પાણીપતનું ઐતિહાસિક યુદ્ધ થયું.",
+      related: ["Mahadji Shinde", "Peshwa Bajirao I"]
+    },
+    {
+      title: "Maratha Hill & Sea Forts",
+      title_hi: "मराठा गिरि और जल दुर्ग",
+      title_gu: "મરાઠા પહાડી અને જળ કિલ્લાઓ",
+      era: "Architecture • Sahyadri & Konkan",
+      keywords: ["raigad", "sindhudurg", "forts", "रायगढ़", "सिंधुदुर्ग", "રાયગઢ", "સિંધુદુર્ગ"],
+      content: "Includes Shivneri, Torna, Rajgad, Raigad (coronation capital), Pratapgad, Sinhagad, and sea forts Sindhudurg and Vijaydurg.",
+      hi: "छत्रपति शिवाजी महाराज के ३०० से अधिक दुर्गों में शिवनेरी, तोरणा, राजगढ़, राजधानी रायगढ़, प्रतापगढ़, सिंहगढ़ तथा समुद्री दुर्ग सिंधुदुर्ग और विजयदुर्ग प्रमुख हैं।",
+      gu: "છત્રપતિ શિવાજી મહારાજના ૩૦૦થી વધુ કિલ્લાઓમાં શિવનેરી, તોરણા, રાજગઢ, રાજધાની રાયગઢ, પ્રતાપગઢ, સિંહગઢ તથા દરિયાઈ કિલ્લા સિંધુદુર્ગ અને વિજયદુર્ગ મુખ્ય છે.",
+      related: ["Chhatrapati Shivaji Maharaj", "Kanhoji Angre & Maratha Navy"]
+    },
+    {
+      title: "Chittorgarh & Kumbhalgarh",
+      title_hi: "चित्तौड़गढ़ और कुंभलगढ़ दुर्ग",
+      title_gu: "ચિત્તોડગઢ અને કુંભલગઢ કિલ્લા",
+      era: "Architecture • Hill Forts of Rajasthan",
+      keywords: ["chittorgarh", "kumbhalgarh", "चित्तौड़गढ़", "कुंभलगढ़", "ચિત્તોડગઢ", "કુંભલગઢ"],
+      content: "UNESCO World Heritage Hill Forts of Rajasthan including Chittorgarh, Kumbhalgarh (birthplace of Maharana Pratap), Mehrangarh, Amer, and Jaisalmer.",
+      hi: "राजस्थान के विश्व धरोहर दुर्गों में चित्तौड़गढ़, महाराणा प्रताप की जन्मस्थली कुंभलगढ़, मेहरानगढ़, आमेर और जैसलमेर दुर्ग स्थापत्य और वीरता के प्रतीक हैं।",
+      gu: "રાજસ્થાનના વિશ્વ ધરોહર કિલ્લાઓમાં ચિત્તોડગઢ, મહારાણા પ્રતાપની જન્મભૂમિ કુંભલગઢ, મેહરાનગઢ, આમેર અને જેસલમેર કિલ્લા સ્થાપત્ય અને વીરતાના પ્રતીક છે.",
+      related: ["Rana Kumbha", "Rani Padmini & Chittor (1303)"]
+    }
+  ];
+
+  function jumpToBot(topic) {
+    document.getElementById("chatbot").scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => askTopic(topic), 400);
+  }
+
+  function askTopic(queryText) {
+    document.getElementById("userInput").value = queryText;
+    sendMessage();
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const rawText = input.value.trim();
+    if (!rawText) return;
+
+    appendUserMessage(rawText);
+    input.value = "";
+
+    const query = rawText.toLowerCase();
+
+    if (query.includes("all topic") || query.includes("list") || query.includes("index") || query.includes("सभी") || query.includes("બધા")) {
+      let listHtml = `All <b>${historyDB.length} stored chronicles</b>:<div class="suggestion-chips">`;
+      historyDB.forEach(item => {
+        const displayTitle = currentLang === "hi" ? item.title_hi : currentLang === "gu" ? item.title_gu : item.title.split("(")[0].trim();
+        listHtml += `<button class="mini-chip" onclick="askTopic('${item.title.replace(/'/g, "\\'")}')">${displayTitle}</button>`;
+      });
+      listHtml += `</div>`;
+      appendBotMessage(uiTranslations[currentLang].langName, listHtml);
+      return;
+    }
+
+    let bestMatch = null;
+    let bestScore = 0;
+
+    for (let entry of historyDB) {
+      let score = 0;
+      const titleLower = entry.title.toLowerCase();
+      if (titleLower.includes(query)) score += 10;
+      if (entry.title_hi.includes(rawText) || entry.title_gu.includes(rawText)) score += 10;
+
+      for (let kw of entry.keywords) {
+        if (query.includes(kw.toLowerCase())) score += kw.length > 4 ? 6 : 4;
+      }
+
+      const words = query.split(/\s+/).filter(w => w.length > 2);
+      for (let w of words) {
+        if (titleLower.includes(w)) score += 3;
+        if (entry.content.toLowerCase().includes(w)) score += 1;
+      }
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestMatch = entry;
+      }
+    }
+
+    if (bestMatch && bestScore >= 3) {
+      const displayTitle = currentLang === "hi" ? bestMatch.title_hi : currentLang === "gu" ? bestMatch.title_gu : bestMatch.title;
+      const displayBody = currentLang === "hi" ? bestMatch.hi : currentLang === "gu" ? bestMatch.gu : bestMatch.content;
+
+      let html = `<span class="era-tag">${bestMatch.era}</span><br><b>${displayTitle}</b><br><br>${displayBody}`;
+      if (bestMatch.related && bestMatch.related.length > 0) {
+        html += `<div class="suggestion-chips">`;
+        bestMatch.related.forEach(rel => {
+          html += `<button class="mini-chip" onclick="askTopic('${rel.replace(/'/g, "\\'")}')">→ ${rel}</button>`;
+        });
+        html += `</div>`;
+      }
+      appendBotMessage(uiTranslations[currentLang].langName, html);
+      speakText(displayTitle + ". " + displayBody);
+    } else {
+      const fallbackText = currentLang === "hi"
+        ? "क्षमा करें, सटीक जानकारी नहीं मिली। श्रीराम, शिवाजी महाराज या महाराणा प्रताप के बारे में पूछें।"
+        : currentLang === "gu"
+        ? "માફ કરશો, ચોક્કસ માહિતી મળી નથી. શ્રીરામ, શિવાજી મહારાજ અથવા મહારાણા પ્રતાપ વિશે પૂછો."
+        : "No exact match found. Try asking about Shri Rama, Shivaji Maharaj, or Maharana Pratap.";
+
+      appendBotMessage(
+        uiTranslations[currentLang].langName,
+        `${fallbackText}
+        <div class="suggestion-chips">
+          <button class="mini-chip" onclick="askTopic('Shri Rama & Suryavansha')">Shri Rama</button>
+          <button class="mini-chip" onclick="askTopic('Chhatrapati Shivaji Maharaj')">Shivaji Maharaj</button>
+          <button class="mini-chip" onclick="askTopic('Maharana Pratap')">Maharana Pratap</button>
+          <button class="mini-chip" onclick="askTopic('List all topics')">All Topics</button>
+        </div>`
+      );
+      speakText(fallbackText);
+    }
+  }
+
+  function appendUserMessage(text) {
+    const box = document.getElementById("chatBox");
+    const div = document.createElement("div");
+    div.className = "message user";
+    div.textContent = text;
+    box.appendChild(div);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function appendBotMessage(label, htmlContent) {
+    const box = document.getElementById("chatBox");
+    const div = document.createElement("div");
+    div.className = "message bot";
+    div.innerHTML = `<div class="bot-header">ACHARYA ITIHASIK • ${label}</div>${htmlContent}`;
+    box.appendChild(div);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  // ================= INTERACTIVE QUIZ =================
+  const quizData = [
+    {
+      q: "At which fort was Chhatrapati Shivaji Maharaj formally crowned Chhatrapati in 1674?",
+      options: ["Shivneri Fort", "Raigad Fort", "Pratapgad Fort", "Sindhudurg Fort"],
+      answer: 1
+    },
+    {
+      q: "In which Kanda of the Ramayana does Lord Hanuman leap across the ocean to Lanka?",
+      options: ["Bala Kanda", "Aranya Kanda", "Sundara Kanda", "Ayodhya Kanda"],
+      answer: 2
+    },
+    {
+      q: "Who was the loyal minister who donated his entire personal wealth to support Maharana Pratap's army?",
+      options: ["Bhama Shah", "Hakim Khan Sur", "Gora", "Chand Bardai"],
+      answer: 0
+    },
+    {
+      q: "Which mountain pass was renamed 'Pavan Khind' after Baji Prabhu Deshpande's heroic stand?",
+      options: ["Bhor Ghat", "Ghodkhind", "Haldighati", "Malshej Ghat"],
+      answer: 1
+    },
+    {
+      q: "Who built the nine-story Vijay Stambha (Tower of Victory) at Chittorgarh?",
+      options: ["Prithviraj Chauhan", "Rana Sanga", "Rana Kumbha", "Bappa Rawal"],
+      answer: 2
+    }
+  ];
+
+  let currentQuiz = 0;
+
+  function loadQuiz() {
+    const item = quizData[currentQuiz];
+    document.getElementById("quizQuestion").textContent = `Q${currentQuiz + 1}. ${item.q}`;
+    document.getElementById("quizFeedback").textContent = "";
+    const optDiv = document.getElementById("quizOptions");
+    optDiv.innerHTML = "";
+    item.options.forEach((opt, idx) => {
+      const btn = document.createElement("button");
+      btn.className = "quiz-opt";
+      btn.textContent = opt;
+      btn.onclick = () => checkAnswer(idx);
+      optDiv.appendChild(btn);
+    });
+  }
+
+  function checkAnswer(selected) {
+    const correct = quizData[currentQuiz].answer;
+    const fb = document.getElementById("quizFeedback");
+    if (selected === correct) {
+      fb.style.color = "#1E6B2B";
+      fb.textContent = "✦ Correct! Well spoken, scholar of Itihasa.";
+      speakText("Correct! Well spoken.");
+    } else {
+      fb.style.color = "#962219";
+      fb.textContent = "✕ Not quite — the correct answer is: " + quizData[currentQuiz].options[correct];
+      speakText("Not quite. The correct answer is " + quizData[currentQuiz].options[correct]);
+    }
+  }
+
+  function nextQuestion() {
+    currentQuiz = (currentQuiz + 1) % quizData.length;
+    loadQuiz();
+  }
+
+  window.onload = () => {
+    loadQuiz();
+    populateVoices();
+  };
+</script>
+</body>
+</html>
